@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gmtl.CodeWatch", "Gmtl.CodeWatch\Gmtl.CodeWatch.csproj", "{BADD03E6-F33A-4934-BABA-599D44AE1FCC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gmtl.CodeWatch.Tests", "Gmtl.CodeWatch.Tests\Gmtl.CodeWatch.Tests.csproj", "{D141D3A4-AC07-4833-9B98-F02645C70676}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BADD03E6-F33A-4934-BABA-599D44AE1FCC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BADD03E6-F33A-4934-BABA-599D44AE1FCC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BADD03E6-F33A-4934-BABA-599D44AE1FCC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BADD03E6-F33A-4934-BABA-599D44AE1FCC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D141D3A4-AC07-4833-9B98-F02645C70676}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D141D3A4-AC07-4833-9B98-F02645C70676}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D141D3A4-AC07-4833-9B98-F02645C70676}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D141D3A4-AC07-4833-9B98-F02645C70676}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
