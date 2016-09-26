@@ -21,4 +21,29 @@ namespace Gmtl.CodeWatch.Tests.Samples
             throw new Exception();
         }
     }
+
+    public class ExceptionTesterWithPrivateMethodCatchAllUnhandled
+    {
+        public void PublicMethod()
+        {
+            UnhandledException();
+        }
+
+        private void UnhandledException()
+        {
+            try
+            {
+                ThrowException();
+            }
+            catch
+            {
+
+            }
+        }
+
+        private void ThrowException()
+        {
+            throw new Exception();
+        }
+    }
 }

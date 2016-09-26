@@ -47,6 +47,7 @@
     <Compile Include="Samples\ExceptionTesterWithCatchAllHandledException.cs" />
     <Compile Include="Samples\ExceptionTesterWithCatchAllUnhandled.cs" />
     <Compile Include="Samples\ExceptionTesterWithHandledAndUnhandledException.cs" />
+    <Compile Include="Samples\ExceptionTesterWithInheritedMethod.cs" />
     <Compile Include="Samples\ExceptionTesterWithParametrizedCatchExceptionV1.cs" />
     <Compile Include="Samples\ExceptionTesterWithParametrizedCatchExceptionV2.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

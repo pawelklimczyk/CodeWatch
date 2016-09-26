@@ -20,6 +20,8 @@ namespace Gmtl.CodeWatch.Tests
         [TestCase(typeof(ExceptionTesterWithParametrizedCatchExceptionV1))]
         [TestCase(typeof(ExceptionTesterWithParametrizedCatchExceptionV2))]
         [TestCase(typeof(ExceptionTesterWithHandledAndUnhandledException))]
+        [TestCase(typeof(ExceptionTesterWithInheritedMethodBase))]
+        [TestCase(typeof(ExceptionTesterWithPrivateMethodCatchAllUnhandled))]
         public void ExceptionHandlingChecker_shouldThrowWhenMethodInTypeWithoutProperExcHandlingIsPresent(Type input)
         {
             sut.WatchType(input);
@@ -33,6 +35,14 @@ namespace Gmtl.CodeWatch.Tests
             sut.WatchAssembly(input.Assembly);
 
             Assert.Throws<CodeWatchException>(() => sut.Execute());
+        }
+
+
+        [TestCase(typeof(ExceptionTesterWithInheritedMethod))]
+        public void ExceptionHandlingChecker_shouldNotThrowWhenMethodInInParentType(Type input)
+        {
+            sut.WatchType(input);
+            sut.Execute();
         }
     }
 }
