@@ -59,7 +59,10 @@
     <Compile Include="Samples\FieldNaming\FieldNamingProtectedLowercase.cs" />
     <Compile Include="Samples\FieldNaming\FieldNamingProtectedUppercase.cs" />
     <Compile Include="Samples\FieldNaming\FieldNamingPublicLowercase.cs" />
-    <Compile Include="Samples\FieldNaming\FieldNamingUppercase.cs" />
+    <Compile Include="Samples\FieldNaming\FieldNamingStaticPrivateUppercase.cs" />
+    <Compile Include="Samples\FieldNaming\FieldNamingStaticProtectedUppercase.cs" />
+    <Compile Include="Samples\FieldNaming\FieldNamingStaticPublicUppercase.cs" />
+    <Compile Include="Samples\FieldNaming\FieldNamingPublicUppercase.cs" />
     <Compile Include="Samples\PropertyNaming\PropertyNamingLowercase.cs" />
     <Compile Include="Samples\PropertyNaming\PropertyNamingUppercase.cs" />
   </ItemGroup>

@@ -18,6 +18,9 @@ namespace Gmtl.CodeWatch.Tests
         [TestCase(typeof(FieldNamingPublicUppercase))]
         [TestCase(typeof(FieldNamingProtectedUppercase))]
         [TestCase(typeof(FieldNamingPrivateUppercase))]
+        [TestCase(typeof(FieldNamingStaticPublicUppercase))]
+        [TestCase(typeof(FieldNamingStaticProtectedUppercase))]
+        [TestCase(typeof(FieldNamingStaticPrivateUppercase))]
         public void FieldNamingWatcherUpperCaseCheck_providedClassShouldPassWithAllUppercaseFields(Type type)
         {
             sut.Configure(Naming.UpperCase);
