@@ -1,5 +1,6 @@
 ﻿using System;
 using Gmtl.CodeWatch.Tests.Samples;
+using Gmtl.CodeWatch.Tests.Samples.ExceptionTester;
 using NUnit.Framework;
 
 namespace Gmtl.CodeWatch.Tests

@@ -1,6 +1,6 @@
 using System;
 
-namespace Gmtl.CodeWatch.Tests.Samples
+namespace Gmtl.CodeWatch.Tests.Samples.ExceptionTester
 {
     public class ExceptionTesterWithCatchAllUnhandled
     {

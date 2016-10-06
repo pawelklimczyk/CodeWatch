@@ -1,8 +1,8 @@
-﻿using System;
+using System;
 
-namespace Gmtl.CodeWatch.Tests.Samples
+namespace Gmtl.CodeWatch.Tests.Samples.ExceptionTester
 {
-    public class ExceptionTesterWithParametrizedCatchExceptionV1
+    public class ExceptionTesterWithHandledAndUnhandledException
     {
         public void UnhandledException()
         {
@@ -12,7 +12,15 @@ namespace Gmtl.CodeWatch.Tests.Samples
             }
             catch (Exception exc)
             {
+                Console.WriteLine(exc.Message);
+            }
 
+            try
+            {
+                ThrowException();
+            }
+            catch
+            {
             }
         }
 

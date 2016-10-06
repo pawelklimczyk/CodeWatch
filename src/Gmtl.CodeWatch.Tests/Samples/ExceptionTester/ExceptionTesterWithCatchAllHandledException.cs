@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace Gmtl.CodeWatch.Tests.Samples
+namespace Gmtl.CodeWatch.Tests.Samples.ExceptionTester
 {
-    public class ExceptionTesterWithParametrizedCatchExceptionV2
+    public class ExceptionTesterWithCatchAllHandledException
     {
         public void UnhandledException()
         {
@@ -10,8 +10,9 @@ namespace Gmtl.CodeWatch.Tests.Samples
             {
                 ThrowException();
             }
-            catch (Exception)
+            catch
             {
+                Console.WriteLine("Exception");
             }
         }
 

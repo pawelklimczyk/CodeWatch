@@ -1,13 +1,8 @@
-using System;
+﻿using System;
 
-namespace Gmtl.CodeWatch.Tests.Samples
+namespace Gmtl.CodeWatch.Tests.Samples.ExceptionTester
 {
-    public class ExceptionTesterWithInheritedMethod : ExceptionTesterWithInheritedMethodBase
-    {
-
-    }
-
-    public class ExceptionTesterWithInheritedMethodBase
+    public class ExceptionTesterWithParametrizedCatchExceptionV2
     {
         public void UnhandledException()
         {
@@ -15,11 +10,11 @@ namespace Gmtl.CodeWatch.Tests.Samples
             {
                 ThrowException();
             }
-            catch
+            catch (Exception)
             {
-
             }
         }
+
         private void ThrowException()
         {
             throw new Exception();
