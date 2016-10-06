@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ExceptionHandlingWatcherTests.cs" />
+    <Compile Include="FieldNamingWatcherTests.cs" />
     <Compile Include="PropertyNamingWatcherTests.cs" />
     <Compile Include="Samples\ExceptionTesterWithCatchAllHandledException.cs" />
     <Compile Include="Samples\ExceptionTesterWithCatchAllUnhandled.cs" />
@@ -52,6 +53,13 @@
     <Compile Include="Samples\ExceptionTesterWithParametrizedCatchExceptionV1.cs" />
     <Compile Include="Samples\ExceptionTesterWithParametrizedCatchExceptionV2.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Samples\FieldNaming\FieldNamingInheritance.cs" />
+    <Compile Include="Samples\FieldNaming\FieldNamingPrivateLowercase.cs" />
+    <Compile Include="Samples\FieldNaming\FieldNamingPrivateUppercase.cs" />
+    <Compile Include="Samples\FieldNaming\FieldNamingProtectedLowercase.cs" />
+    <Compile Include="Samples\FieldNaming\FieldNamingProtectedUppercase.cs" />
+    <Compile Include="Samples\FieldNaming\FieldNamingPublicLowercase.cs" />
+    <Compile Include="Samples\FieldNaming\FieldNamingUppercase.cs" />
     <Compile Include="Samples\PropertyNaming\PropertyNamingLowercase.cs" />
     <Compile Include="Samples\PropertyNaming\PropertyNamingUppercase.cs" />
   </ItemGroup>

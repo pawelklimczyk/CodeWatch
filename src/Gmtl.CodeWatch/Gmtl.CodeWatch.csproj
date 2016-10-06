@@ -43,6 +43,7 @@
     <Compile Include="ExceptionHandlingWatcher.cs" />
     <Compile Include="IWatcher.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="FieldNamingWatcher.cs" />
     <Compile Include="PropertyNamingWatcher.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
