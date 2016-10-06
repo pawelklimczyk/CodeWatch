@@ -63,8 +63,14 @@
     <Compile Include="Samples\FieldNaming\FieldNamingStaticProtectedUppercase.cs" />
     <Compile Include="Samples\FieldNaming\FieldNamingStaticPublicUppercase.cs" />
     <Compile Include="Samples\FieldNaming\FieldNamingPublicUppercase.cs" />
-    <Compile Include="Samples\PropertyNaming\PropertyNamingLowercase.cs" />
-    <Compile Include="Samples\PropertyNaming\PropertyNamingUppercase.cs" />
+    <Compile Include="Samples\PropertyNaming\PropertyNamingInheritance.cs" />
+    <Compile Include="Samples\PropertyNaming\FieldNamingStaticPublicUppercase.cs" />
+    <Compile Include="Samples\PropertyNaming\PropertyNamingPublicLowercase.cs" />
+    <Compile Include="Samples\PropertyNaming\PropertyNamingProtectedUppercase.cs" />
+    <Compile Include="Samples\PropertyNaming\PropertyNamingPrivateUppercase.cs" />
+    <Compile Include="Samples\PropertyNaming\PropertyNamingPublicUppercase.cs" />
+    <Compile Include="Samples\PropertyNaming\PropertyNamingStaticPrivateUppercase.cs" />
+    <Compile Include="Samples\PropertyNaming\PropertyNamingStaticProtectedUppercase.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

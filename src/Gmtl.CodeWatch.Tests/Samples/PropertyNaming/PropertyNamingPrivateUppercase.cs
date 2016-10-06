@@ -8,11 +8,11 @@ using System.Collections.Generic;
 
 namespace Gmtl.CodeWatch.Tests.Samples.PropertyNaming
 {
-    public class PropertyNamingUppercase
+    public class PropertyNamingPrivateUppercase
     {
-        public string Property1 { get; set; }
-        public object Property2 { get; set; }
-        public List<object> Property3 { get; set; }
-        public bool Property4 { get; set; }
+        private string Property1 { get; set; }
+        private object Property2 { get; set; }
+        private List<object> Property3 { get; set; }
+        private bool Property4 { get; set; }
     }
 }

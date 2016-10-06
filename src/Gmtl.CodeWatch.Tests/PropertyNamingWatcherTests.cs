@@ -1,4 +1,5 @@
-﻿using Gmtl.CodeWatch.Tests.Samples.PropertyNaming;
+﻿using System;
+using Gmtl.CodeWatch.Tests.Samples.PropertyNaming;
 using NUnit.Framework;
 
 namespace Gmtl.CodeWatch.Tests
@@ -14,38 +15,60 @@ namespace Gmtl.CodeWatch.Tests
             sut = new PropertyNamingWatcher();
         }
 
-        [Test]
-        public void PropertyNamingWatcherLowerCaseCheck_providedClassShouldPassWithAllLowercaseProperties()
+        [TestCase(typeof(PropertyNamingPublicLowercase))]
+        [TestCase(typeof(PropertyNamingProtectedLowercase))]
+        [TestCase(typeof(PropertyNamingPrivateLowercase))]
+        public void PropertyNamingWatcherLowerCaseCheck_providedClassShouldPassWithAllLowercaseProperties(Type type)
         {
             sut.Configure(Naming.LowerCase);
-            sut.WatchType(typeof(PropertyNamingLowercase));
+            sut.WatchType(type);
 
             sut.Execute();
         }
 
-        [Test]
-        public void PropertyNamingWatcherUpperCaseCheck_providedClassShouldFailWithAllLowercaseProperties()
+        [TestCase(typeof(PropertyNamingPublicLowercase))]
+        [TestCase(typeof(PropertyNamingProtectedLowercase))]
+        [TestCase(typeof(PropertyNamingPrivateLowercase))]
+        public void PropertyNamingWatcherUpperCaseCheck_providedClassShouldFailWithAllLowercaseProperties(Type type)
         {
             sut.Configure(Naming.UpperCase);
-            sut.WatchType(typeof(PropertyNamingLowercase));
+            sut.WatchType(type);
 
             Assert.Throws<CodeWatchException>(() => sut.Execute());
         }
 
-        [Test]
-        public void PropertyNamingWatcherLowerCaseCheck_providedClassShoulFailWithAllUppercaseProperties()
+        [TestCase(typeof(PropertyNamingPublicUppercase))]
+        [TestCase(typeof(PropertyNamingProtectedUppercase))]
+        [TestCase(typeof(PropertyNamingPrivateUppercase))]
+        [TestCase(typeof(PropertyNamingStaticPublicUppercase))]
+        [TestCase(typeof(PropertyNamingStaticProtectedUppercase))]
+        [TestCase(typeof(PropertyNamingStaticPrivateUppercase))]
+        public void PropertyNamingWatcherLowerCaseCheck_providedClassShoulFailWithAllUppercaseProperties(Type type)
         {
             sut.Configure(Naming.LowerCase);
-            sut.WatchType(typeof(PropertyNamingUppercase));
+            sut.WatchType(type);
 
             Assert.Throws<CodeWatchException>(() => sut.Execute());
         }
 
-        [Test]
-        public void PropertyNamingWatcherUpperCaseCheck_providedClassShouldPassWithAllLowercaseProperties()
+        [TestCase(typeof(PropertyNamingPublicUppercase))]
+        [TestCase(typeof(PropertyNamingProtectedUppercase))]
+        [TestCase(typeof(PropertyNamingPrivateUppercase))]
+        [TestCase(typeof(PropertyNamingStaticPublicUppercase))]
+        [TestCase(typeof(PropertyNamingStaticProtectedUppercase))]
+        [TestCase(typeof(PropertyNamingStaticPrivateUppercase))]
+        public void PropertyNamingWatcherUpperCaseCheck_providedClassShouldPassWithAllLowercaseProperties(Type type)
         {
             sut.Configure(Naming.UpperCase);
-            sut.WatchType(typeof(PropertyNamingUppercase));
+            sut.WatchType(type);
+            sut.Execute();
+        }
+
+        [Test]
+        public void FieldNamingWatcher_providedClassShouldOnlyCheckFieldDeclaredInIt()
+        {
+            sut.Configure(Naming.UpperCase);
+            sut.WatchType(typeof(PropertyNamingInheritance));
             sut.Execute();
         }
     }

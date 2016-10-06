@@ -19,7 +19,7 @@ namespace Gmtl.CodeWatch
         {
             foreach (Type type in typesToCheck)
             {
-                foreach (PropertyInfo pi in type.GetProperties())
+                foreach (PropertyInfo pi in type.GetProperties(BindingFlags.Public | BindingFlags.DeclaredOnly | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Static))
                 {
                     char firstLetter = pi.Name[0];
 
