@@ -43,7 +43,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ExceptionHandlingCheckedTests.cs" />
+    <Compile Include="ExceptionHandlingWatcherTests.cs" />
+    <Compile Include="PropertyNamingWatcherTests.cs" />
     <Compile Include="Samples\ExceptionTesterWithCatchAllHandledException.cs" />
     <Compile Include="Samples\ExceptionTesterWithCatchAllUnhandled.cs" />
     <Compile Include="Samples\ExceptionTesterWithHandledAndUnhandledException.cs" />
@@ -51,6 +52,8 @@
     <Compile Include="Samples\ExceptionTesterWithParametrizedCatchExceptionV1.cs" />
     <Compile Include="Samples\ExceptionTesterWithParametrizedCatchExceptionV2.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Samples\PropertyNaming\PropertyNamingLowercase.cs" />
+    <Compile Include="Samples\PropertyNaming\PropertyNamingUppercase.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

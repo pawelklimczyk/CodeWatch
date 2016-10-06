@@ -5,7 +5,7 @@ using NUnit.Framework;
 namespace Gmtl.CodeWatch.Tests
 {
     [TestFixture]
-    public class ExceptionHandlingCheckedTests
+    public class ExceptionHandlingWatcherTests
     {
         ExceptionHandlingWatcher sut;
 

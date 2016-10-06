@@ -5,18 +5,12 @@ using System.Reflection;
 
 namespace Gmtl.CodeWatch
 {
-    public class ExceptionHandlingWatcher
+    public class ExceptionHandlingWatcher : AbstractWatcher
     {
-        private List<Type> typesToCheck = new List<Type>();
         private List<Assembly> assembliesToCheck = new List<Assembly>();
         private static Type objType = typeof(Object);
 
-        public void WatchType(Type type)
-        {
-            typesToCheck.Add(type);
-        }
-
-        public void Execute()
+        public override void Execute()
         {
             foreach (Type type in typesToCheck)
             {
@@ -39,7 +33,7 @@ namespace Gmtl.CodeWatch
                 var methodBody = methodInfo.GetMethodBody();
                 if (methodBody == null) continue;
 
-                foreach (var excHandCauses in methodBody.ExceptionHandlingClauses.Where(c=>c.Flags!=ExceptionHandlingClauseOptions.Finally))
+                foreach (var excHandCauses in methodBody.ExceptionHandlingClauses.Where(c => c.Flags != ExceptionHandlingClauseOptions.Finally))
                 {
                     if (excHandCauses.CatchType == objType)
                     {

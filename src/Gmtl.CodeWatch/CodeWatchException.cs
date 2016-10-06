@@ -4,9 +4,10 @@ namespace Gmtl.CodeWatch
 {
     public class CodeWatchException : Exception
     {
-        public CodeWatchException(string message):base(message)
+        public CodeWatchException(string message)
+            : base(message)
         {
-            
+
         }
     }
 }
