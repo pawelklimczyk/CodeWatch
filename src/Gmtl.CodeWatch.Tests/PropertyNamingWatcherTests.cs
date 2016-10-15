@@ -43,7 +43,7 @@ namespace Gmtl.CodeWatch.Tests
         [TestCase(typeof(PropertyNamingStaticPublicUppercase))]
         [TestCase(typeof(PropertyNamingStaticProtectedUppercase))]
         [TestCase(typeof(PropertyNamingStaticPrivateUppercase))]
-        public void PropertyNamingWatcherLowerCaseCheck_providedClassShoulFailWithAllUppercaseProperties(Type type)
+        public void PropertyNamingWatcherLowerCaseCheck_providedClassShouldFailWithAllUppercaseProperties(Type type)
         {
             sut.Configure(Naming.LowerCase);
             sut.WatchType(type);
@@ -65,10 +65,37 @@ namespace Gmtl.CodeWatch.Tests
         }
 
         [Test]
-        public void FieldNamingWatcher_providedClassShouldOnlyCheckFieldDeclaredInIt()
+        public void PropertyNamingWatcher_providedClassShouldOnlyCheckFieldDeclaredInIt()
         {
             sut.Configure(Naming.UpperCase);
             sut.WatchType(typeof(PropertyNamingInheritance));
+            sut.Execute();
+        }
+
+        [Test]
+        public void PropertyNamingWatcherLowerCaseCheck_providedAssemblyWithMixedNamesShouldFail()
+        {
+            sut.Configure(Naming.LowerCase);
+            sut.WatchAssembly(typeof(Gmtl.CodeWatch.TestData.MixedPropertyNames.Class1).Assembly);
+
+            Assert.Throws<CodeWatchException>(() => sut.Execute());
+        }
+
+        [Test]
+        public void PropertyNamingWatcherLowerCaseCheck_providedAssemblyWithUpperCaseNamesShouldFail()
+        {
+            sut.Configure(Naming.LowerCase);
+            sut.WatchAssembly(typeof(Gmtl.CodeWatch.TestData.AllUppercaseProperties.Class1).Assembly);
+
+            Assert.Throws<CodeWatchException>(() => sut.Execute());
+        }
+
+        [Test]
+        public void PropertyNamingWatcherUpperCaseCheck_providedAssemblyWithUpperCaseNamesShouldPass()
+        {
+            sut.Configure(Naming.UpperCase);
+            sut.WatchAssembly(typeof(Gmtl.CodeWatch.TestData.AllUppercaseProperties.Class1).Assembly);
+
             sut.Execute();
         }
     }

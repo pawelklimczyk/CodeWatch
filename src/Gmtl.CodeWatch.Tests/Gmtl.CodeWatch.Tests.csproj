@@ -80,6 +80,14 @@
       <Project>{badd03e6-f33a-4934-baba-599d44ae1fcc}</Project>
       <Name>Gmtl.CodeWatch</Name>
     </ProjectReference>
+    <ProjectReference Include="..\TestData\Gmtl.CodeWatch.TestData.AllUppercaseProperties\Gmtl.CodeWatch.TestData.AllUppercaseProperties.csproj">
+      <Project>{25d8d54d-b556-4df9-a36b-b272429128bf}</Project>
+      <Name>Gmtl.CodeWatch.TestData.AllUppercaseProperties</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TestData\Gmtl.CodeWatch.TestData.MixedPropertyNames\Gmtl.CodeWatch.TestData.MixedPropertyNames.csproj">
+      <Project>{875619ba-6757-40cb-85c0-0e135290b1f7}</Project>
+      <Name>Gmtl.CodeWatch.TestData.MixedPropertyNames</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

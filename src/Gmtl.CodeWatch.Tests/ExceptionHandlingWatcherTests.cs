@@ -38,7 +38,6 @@ namespace Gmtl.CodeWatch.Tests
             Assert.Throws<CodeWatchException>(() => sut.Execute());
         }
 
-
         [TestCase(typeof(ExceptionTesterWithInheritedMethod))]
         public void ExceptionHandlingChecker_shouldNotThrowWhenMethodInInParentType(Type input)
         {

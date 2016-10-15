@@ -15,18 +15,15 @@ namespace Gmtl.CodeWatch
             {Naming.UpperCase, "ABCDEFGHIJKLMNOPQRSTUWVXZY".ToCharArray()}
         };
 
-        public override void Execute()
+        protected override void CheckType(Type type)
         {
-            foreach (Type type in typesToCheck)
+            foreach (FieldInfo pi in type.GetFields(BindingFlags.Public | BindingFlags.DeclaredOnly | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Static))
             {
-                foreach (FieldInfo pi in type.GetFields(BindingFlags.Public | BindingFlags.DeclaredOnly | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Static))
-                {
-                    char firstLetter = pi.Name[0];
+                char firstLetter = pi.Name[0];
 
-                    if (!maps[namingConvention].Contains(firstLetter))
-                    {
-                        throw new CodeWatchException(String.Format("Field {0} does not meet FieldNaming standards", pi.Name));
-                    }
+                if (!maps[namingConvention].Contains(firstLetter))
+                {
+                    throw new CodeWatchException(String.Format("Field {0} does not meet FieldNaming standards", pi.Name));
                 }
             }
         }

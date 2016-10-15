@@ -7,26 +7,9 @@ namespace Gmtl.CodeWatch
 {
     public class ExceptionHandlingWatcher : AbstractWatcher
     {
-        private List<Assembly> assembliesToCheck = new List<Assembly>();
         private static Type objType = typeof(Object);
-
-        public override void Execute()
-        {
-            foreach (Type type in typesToCheck)
-            {
-                CheckType(type);
-            }
-
-            foreach (var assembly in assembliesToCheck)
-            {
-                foreach (var type in assembly.GetTypes())
-                {
-                    CheckType(type);
-                }
-            }
-        }
-
-        private static void CheckType(Type type)
+        
+        protected override void CheckType(Type type)
         {
             foreach (var methodInfo in type.GetMethods(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.DeclaredOnly))
             {
@@ -46,11 +29,6 @@ namespace Gmtl.CodeWatch
                     }
                 }
             }
-        }
-
-        public void WatchAssembly(Assembly assembly)
-        {
-            assembliesToCheck.Add(assembly);
         }
     }
 }

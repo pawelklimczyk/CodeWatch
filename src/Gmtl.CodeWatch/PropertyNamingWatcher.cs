@@ -14,19 +14,16 @@ namespace Gmtl.CodeWatch
             {Naming.LowerCase, "abcdefghijklmnopqrstuwvxzy".ToCharArray()},
             {Naming.UpperCase, "ABCDEFGHIJKLMNOPQRSTUWVXZY".ToCharArray()}
         };
-        
-        public override void Execute()
-        {
-            foreach (Type type in typesToCheck)
-            {
-                foreach (PropertyInfo pi in type.GetProperties(BindingFlags.Public | BindingFlags.DeclaredOnly | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Static))
-                {
-                    char firstLetter = pi.Name[0];
 
-                    if(!maps[namingConvention].Contains(firstLetter))
-                    {
-                        throw new CodeWatchException(String.Format("Property {0} does not meet PropertyNaming standards", pi.Name));
-                    }
+        protected override void CheckType(Type type)
+        {
+            foreach (PropertyInfo pi in type.GetProperties(BindingFlags.Public | BindingFlags.DeclaredOnly | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Static))
+            {
+                char firstLetter = pi.Name[0];
+
+                if (!maps[namingConvention].Contains(firstLetter))
+                {
+                    throw new CodeWatchException(String.Format("Property {0} does not meet PropertyNaming standards", pi.Name));
                 }
             }
         }
