@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>Gmtl.CodeWatch</id>
+    <version>$version$</version>
+    <authors>Pawel Klimczyk</authors>
+    <owners>Pawel</owners>
+    <licenseUrl>https://github.com/pawelklimczyk/CodeWatch</licenseUrl>
+    <projectUrl>https://github.com/pawelklimczyk/CodeWatch</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>CodeWatch is used for monitoring code quality during unit/component/integration testing phase</description>
+    <releaseNotes>Initial version of CodeWatch</releaseNotes>
+    <copyright>Copyright Gemotial 2015-2016</copyright>
+    <tags>code-qaulity unit test tdd</tags>
+  </metadata>
+</package>
