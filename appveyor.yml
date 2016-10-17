@@ -1,0 +1,8 @@
+environment:
+  EnableNuGetPackageRestore: true
+before_build:
+  - cd src
+  - nuget restore
+build:
+  project: src/Gmtl.CodeWatch.sln
+  verbosity: normal
