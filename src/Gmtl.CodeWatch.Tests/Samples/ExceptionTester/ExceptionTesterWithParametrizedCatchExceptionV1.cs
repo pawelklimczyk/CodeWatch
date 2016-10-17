@@ -10,7 +10,7 @@ namespace Gmtl.CodeWatch.Tests.Samples.ExceptionTester
             {
                 ThrowException();
             }
-            catch (Exception exc)
+            catch
             {
 
             }
