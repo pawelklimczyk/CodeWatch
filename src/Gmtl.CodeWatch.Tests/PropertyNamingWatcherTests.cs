@@ -98,5 +98,15 @@ namespace Gmtl.CodeWatch.Tests
 
             sut.Execute();
         }
+
+        [Test]
+        public void PropertyNamingWatcher_exceptionShouldContainFailingPropertyFullName()
+        {
+            sut.Configure(Naming.LowerCase);
+            sut.WatchAssembly(typeof(Gmtl.CodeWatch.TestData.AllUppercaseProperties.Class1).Assembly);
+
+            var exception = Assert.Throws<CodeWatchException>(() => sut.Execute());
+            StringAssert.Contains("Gmtl.CodeWatch.TestData.AllUppercaseProperties.Class1.TestProperty", exception.Message);
+        }
     }
 }

@@ -23,7 +23,7 @@ namespace Gmtl.CodeWatch
 
                 if (!maps[namingConvention].Contains(firstLetter))
                 {
-                    throw new CodeWatchException(String.Format("Property {0} does not meet PropertyNaming standards", pi.Name));
+                    throw new CodeWatchException(String.Format("Property {0}.{1} does not meet PropertyNaming standards", type.FullName, pi.Name));
                 }
             }
         }
