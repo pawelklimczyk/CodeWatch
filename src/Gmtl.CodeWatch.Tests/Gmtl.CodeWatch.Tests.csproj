@@ -11,6 +11,8 @@
     <AssemblyName>Gmtl.CodeWatch.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -53,24 +55,18 @@
     <Compile Include="Samples\ExceptionTester\ExceptionTesterWithParametrizedCatchExceptionV1.cs" />
     <Compile Include="Samples\ExceptionTester\ExceptionTesterWithParametrizedCatchExceptionV2.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Samples\FieldNaming\FieldNaming.tt.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FieldNaming.tt</DependentUpon>
+    </Compile>
     <Compile Include="Samples\FieldNaming\FieldNamingInheritance.cs" />
-    <Compile Include="Samples\FieldNaming\FieldNamingPrivateLowercase.cs" />
-    <Compile Include="Samples\FieldNaming\FieldNamingPrivateUppercase.cs" />
-    <Compile Include="Samples\FieldNaming\FieldNamingProtectedLowercase.cs" />
-    <Compile Include="Samples\FieldNaming\FieldNamingProtectedUppercase.cs" />
-    <Compile Include="Samples\FieldNaming\FieldNamingPublicLowercase.cs" />
-    <Compile Include="Samples\FieldNaming\FieldNamingStaticPrivateUppercase.cs" />
-    <Compile Include="Samples\FieldNaming\FieldNamingStaticProtectedUppercase.cs" />
-    <Compile Include="Samples\FieldNaming\FieldNamingStaticPublicUppercase.cs" />
-    <Compile Include="Samples\FieldNaming\FieldNamingPublicUppercase.cs" />
+    <Compile Include="Samples\PropertyNaming\PropertyNaming.tt.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PropertyNaming.tt</DependentUpon>
+    </Compile>
     <Compile Include="Samples\PropertyNaming\PropertyNamingInheritance.cs" />
-    <Compile Include="Samples\PropertyNaming\FieldNamingStaticPublicUppercase.cs" />
-    <Compile Include="Samples\PropertyNaming\PropertyNamingPublicLowercase.cs" />
-    <Compile Include="Samples\PropertyNaming\PropertyNamingProtectedUppercase.cs" />
-    <Compile Include="Samples\PropertyNaming\PropertyNamingPrivateUppercase.cs" />
-    <Compile Include="Samples\PropertyNaming\PropertyNamingPublicUppercase.cs" />
-    <Compile Include="Samples\PropertyNaming\PropertyNamingStaticPrivateUppercase.cs" />
-    <Compile Include="Samples\PropertyNaming\PropertyNamingStaticProtectedUppercase.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -89,8 +85,27 @@
       <Name>Gmtl.CodeWatch.TestData.MixedPropertyNames</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Samples\FieldNaming\FieldNaming.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>FieldNaming.tt.cs</LastGenOutput>
+    </Content>
+    <Content Include="Samples\PropertyNaming\PropertyNaming.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>PropertyNaming.tt.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\Clarius.TransformOnBuild-unofficial.1.20\build\Clarius.TransformOnBuild-unofficial.targets" Condition="Exists('..\packages\Clarius.TransformOnBuild-unofficial.1.20\build\Clarius.TransformOnBuild-unofficial.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Clarius.TransformOnBuild-unofficial.1.20\build\Clarius.TransformOnBuild-unofficial.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Clarius.TransformOnBuild-unofficial.1.20\build\Clarius.TransformOnBuild-unofficial.targets'))" />
+  </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
