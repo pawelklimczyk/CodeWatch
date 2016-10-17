@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+#pragma warning disable 169
 
 namespace Gmtl.CodeWatch.Tests.Samples.FieldNaming
 {

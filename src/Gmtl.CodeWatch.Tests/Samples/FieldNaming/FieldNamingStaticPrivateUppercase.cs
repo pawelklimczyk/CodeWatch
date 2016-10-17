@@ -1,4 +1,6 @@
-﻿namespace Gmtl.CodeWatch.Tests.Samples.FieldNaming
+﻿#pragma warning disable 169
+
+namespace Gmtl.CodeWatch.Tests.Samples.FieldNaming
 {
     public class FieldNamingStaticPrivateUppercase
     {
