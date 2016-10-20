@@ -47,6 +47,7 @@
   <ItemGroup>
     <Compile Include="ExceptionHandlingWatcherTests.cs" />
     <Compile Include="FieldNamingWatcherTests.cs" />
+    <Compile Include="MaxMethodParametersWatcherTests.cs" />
     <Compile Include="PropertyNamingWatcherTests.cs" />
     <Compile Include="Samples\ExceptionTester\ExceptionTesterWithCatchAllHandledException.cs" />
     <Compile Include="Samples\ExceptionTester\ExceptionTesterWithCatchAllUnhandled.cs" />
@@ -61,6 +62,11 @@
       <DependentUpon>FieldNaming.tt</DependentUpon>
     </Compile>
     <Compile Include="Samples\FieldNaming\FieldNamingInheritance.cs" />
+    <Compile Include="Samples\ManyParametersMethods\ManyParametersMethods.tt.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ManyParametersMethods.tt</DependentUpon>
+    </Compile>
     <Compile Include="Samples\PropertyNaming\PropertyNaming.tt.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -89,6 +95,10 @@
     <Content Include="Samples\FieldNaming\FieldNaming.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>FieldNaming.tt.cs</LastGenOutput>
+    </Content>
+    <Content Include="Samples\ManyParametersMethods\ManyParametersMethods.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ManyParametersMethods.tt.cs</LastGenOutput>
     </Content>
     <Content Include="Samples\PropertyNaming\PropertyNaming.tt">
       <Generator>TextTemplatingFileGenerator</Generator>

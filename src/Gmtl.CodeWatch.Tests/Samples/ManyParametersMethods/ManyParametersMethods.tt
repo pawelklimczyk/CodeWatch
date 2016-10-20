@@ -1,0 +1,40 @@
+﻿<#@ template debug="false" hostspecific="false" language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ output extension=".tt.cs" #>
+using System;
+#pragma warning disable 169
+
+namespace Gmtl.CodeWatch.Tests.Samples.ManyParametersMethods
+{
+<#
+for(int i = 0; i < 5; i++)
+{
+#>
+	public class ClassWithPublicMethodHaving<#=i#>Parameters
+	{
+		public void Method(<# for(int param = 0; param<i; param++){#>int val<#=param#><#= param != (i-1)? ", " : "" #><#}#>)
+		{
+		}
+	}
+
+	public class ClassWithPrivateMethodHaving<#=i#>Parameters
+	{
+		private void PrivateMethod(<# for(int param = 0; param<i; param++){#>int val<#=param#><#= param != (i-1)? ", " : "" #><#}#>)
+		{
+		}
+	}
+
+	public static class ClassWithPublicStaticMethodHaving<#=i#>Parameters
+	{
+		public static void PublicMethod(<# for(int param = 0; param<i; param++){#>int val<#=param#><#= param != (i-1)? ", " : "" #><#}#>)
+		{
+		}
+	}
+
+<#
+}
+#>
+}
