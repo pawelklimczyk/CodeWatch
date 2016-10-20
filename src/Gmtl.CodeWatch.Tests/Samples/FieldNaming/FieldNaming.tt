@@ -1,0 +1,43 @@
+﻿<#@ template debug="false" hostspecific="false" language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ output extension=".tt.cs" #>
+using System.Collections.Generic;
+#pragma warning disable 169
+
+namespace Gmtl.CodeWatch.Tests.Samples.FieldNaming
+{
+<#
+string[] access = new []{"private","public","protected"};
+ for(int i = 0; i < 3; i++)
+{
+string accessUppercase = access[i].Substring(0,1).ToUpperInvariant() + access[i].Substring(1,access[i].Length-1);
+#>
+    public class FieldNaming<#= accessUppercase#>Lowercase
+    {
+        <#= access[i] #> string field1;
+        <#= access[i] #> object field2;
+        <#= access[i] #> List<object> field3;
+        <#= access[i] #> bool field4;
+    }
+
+
+	public class FieldNaming<#=accessUppercase#>Uppercase
+    {
+        <#= access[i] #> string Field1;
+        <#= access[i] #> object Field2;
+        <#= access[i] #> List<object> Field3;
+        <#= access[i] #> bool Field4;
+    }
+
+	public class FieldNamingStatic<#=accessUppercase#>Uppercase
+    {
+        <#= access[i] #> static int StaticField;
+    }
+
+<#
+}
+#>
+}

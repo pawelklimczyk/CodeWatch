@@ -1,0 +1,41 @@
+﻿<#@ template debug="false" hostspecific="false" language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ output extension="tt.cs" #>
+using System.Collections.Generic;
+#pragma warning disable 169
+
+
+namespace Gmtl.CodeWatch.Tests.Samples.PropertyNaming
+{
+<#
+string[] access = new []{"private","public","protected"};
+ for(int i = 0; i < 3; i++)
+{
+string accessUppercase = access[i].Substring(0,1).ToUpperInvariant() + access[i].Substring(1,access[i].Length-1);
+#>
+    public class PropertyNaming<#= accessUppercase#>Lowercase
+    {
+        <#= access[i] #> string property1 { get; set; }
+        <#= access[i] #> object property2 { get; set; }
+        <#= access[i] #> List<object> property3 { get; set; }
+        <#= access[i] #> bool property4 { get; set; }
+    }
+
+
+	public class PropertyNaming<#=accessUppercase#>Uppercase
+    {
+		<#= access[i] #> string Property1 { get; set; }
+        <#= access[i] #> object Property2 { get; set; }
+        <#= access[i] #> List<object> Property3 { get; set; }
+        <#= access[i] #> bool Property4 { get; set; }
+    }
+
+	public class PropertyNamingStatic<#=accessUppercase#>Uppercase
+    {     
+        <#= access[i] #> static int StaticField { get; set; }    
+    }
+
+<#
+}
+#>
+}
