@@ -15,6 +15,8 @@ namespace Gmtl.CodeWatch
             {Naming.UpperCase, "ABCDEFGHIJKLMNOPQRSTUWVXZY".ToCharArray()}
         };
 
+        public FieldNamingWatcher(CodeWatcherContext context = null) : base(context) { }
+
         protected override void CheckType(Type type)
         {
             foreach (FieldInfo pi in type.GetFields(BindingFlags.Public | BindingFlags.DeclaredOnly | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Static))
@@ -28,9 +30,11 @@ namespace Gmtl.CodeWatch
             }
         }
 
-        public void Configure(Naming convention)
+        public AbstractWatcher Configure(Naming convention)
         {
             namingConvention = convention;
+
+            return this;
         }
     }
 }

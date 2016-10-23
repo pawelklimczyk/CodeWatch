@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 
@@ -8,7 +7,9 @@ namespace Gmtl.CodeWatch
     public class ExceptionHandlingWatcher : AbstractWatcher
     {
         private static Type objType = typeof(Object);
-        
+
+        public ExceptionHandlingWatcher(CodeWatcherContext context = null) : base(context) { }
+
         protected override void CheckType(Type type)
         {
             foreach (var methodInfo in type.GetMethods(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.DeclaredOnly))

@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GlobalContextTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WatchAllTryCatchBlocksHandleException.cs" />
     <Compile Include="WatchFieldNamesInAssemblies.cs" />

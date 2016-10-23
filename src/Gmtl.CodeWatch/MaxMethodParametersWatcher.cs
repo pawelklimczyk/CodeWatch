@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Gmtl.CodeWatch
 {
@@ -16,6 +12,9 @@ namespace Gmtl.CodeWatch
 
         private readonly BindingFlags searchFlags = BindingFlags.Public | BindingFlags.DeclaredOnly |
                                                     BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Static;
+
+        public MaxMethodParametersWatcher(CodeWatcherContext context = null) : base(context) { }
+
         protected override void CheckType(Type type)
         {
             foreach (MethodInfo methodInfo in type.GetMethods(searchFlags))

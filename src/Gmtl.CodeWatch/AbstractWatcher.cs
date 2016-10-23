@@ -10,6 +10,13 @@ namespace Gmtl.CodeWatch
 
         protected List<Assembly> assembliesToCheck = new List<Assembly>();
 
+        protected readonly CodeWatcherContext context;
+
+        protected AbstractWatcher(CodeWatcherContext context)
+        {
+            this.context = context;
+        }
+
         public void WatchType(Type type)
         {
             typesToCheck.Add(type);

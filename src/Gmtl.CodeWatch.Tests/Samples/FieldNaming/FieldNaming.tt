@@ -23,7 +23,6 @@ string accessUppercase = access[i].Substring(0,1).ToUpperInvariant() + access[i]
         <#= access[i] #> bool field4;
     }
 
-
 	public class FieldNaming<#=accessUppercase#>Uppercase
     {
         <#= access[i] #> string Field1;

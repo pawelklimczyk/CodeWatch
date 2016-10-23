@@ -40,10 +40,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AbstractWatcher.cs" />
+    <Compile Include="CodeWatcherConfig.cs" />
+    <Compile Include="CodeWatcherContext.cs" />
     <Compile Include="CodeWatchException.cs" />
     <Compile Include="ExceptionHandlingWatcher.cs" />
     <Compile Include="IWatcher.cs" />
     <Compile Include="MaxMethodParametersWatcher.cs" />
+    <Compile Include="Naming.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="FieldNamingWatcher.cs" />
     <Compile Include="PropertyNamingWatcher.cs" />

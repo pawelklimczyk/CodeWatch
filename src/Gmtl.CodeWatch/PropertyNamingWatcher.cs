@@ -15,6 +15,8 @@ namespace Gmtl.CodeWatch
             {Naming.UpperCase, "ABCDEFGHIJKLMNOPQRSTUWVXZY".ToCharArray()}
         };
 
+        public PropertyNamingWatcher(CodeWatcherContext context = null) : base(context) { }
+
         protected override void CheckType(Type type)
         {
             foreach (PropertyInfo pi in type.GetProperties(BindingFlags.Public | BindingFlags.DeclaredOnly | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Static))
@@ -28,15 +30,11 @@ namespace Gmtl.CodeWatch
             }
         }
 
-        public void Configure(Naming convention)
+        public AbstractWatcher Configure(Naming convention)
         {
             namingConvention = convention;
-        }
-    }
 
-    public enum Naming
-    {
-        UpperCase,
-        LowerCase
+            return this;
+        }
     }
 }

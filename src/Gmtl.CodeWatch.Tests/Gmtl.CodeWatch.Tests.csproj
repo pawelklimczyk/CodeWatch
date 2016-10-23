@@ -47,6 +47,7 @@
   <ItemGroup>
     <Compile Include="ExceptionHandlingWatcherTests.cs" />
     <Compile Include="FieldNamingWatcherTests.cs" />
+    <Compile Include="FluentConfigurationTests.cs" />
     <Compile Include="MaxMethodParametersWatcherTests.cs" />
     <Compile Include="PropertyNamingWatcherTests.cs" />
     <Compile Include="Samples\ExceptionTester\ExceptionTesterWithCatchAllHandledException.cs" />
