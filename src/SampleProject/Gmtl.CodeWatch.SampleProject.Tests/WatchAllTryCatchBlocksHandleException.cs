@@ -11,6 +11,7 @@ namespace Gmtl.CodeWatch.SampleProject.Tests
             ExceptionHandlingWatcher exceptionHandlingWatcher = new ExceptionHandlingWatcher();
             exceptionHandlingWatcher.WatchAssembly(typeof(DomainModel).Assembly);
 
+            //This will throw exception
             exceptionHandlingWatcher.Execute();
         }
     }

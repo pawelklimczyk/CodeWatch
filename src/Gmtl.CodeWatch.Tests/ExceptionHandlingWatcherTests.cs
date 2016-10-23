@@ -1,5 +1,4 @@
 ﻿using System;
-using Gmtl.CodeWatch.Tests.Samples;
 using Gmtl.CodeWatch.Tests.Samples.ExceptionTester;
 using NUnit.Framework;
 
@@ -35,7 +34,9 @@ namespace Gmtl.CodeWatch.Tests
         {
             sut.WatchAssembly(input.Assembly);
 
-            Assert.Throws<CodeWatchException>(() => sut.Execute());
+            var exception = Assert.Throws<CodeWatchException>(() => sut.Execute());
+            StringAssert.Contains("Gmtl.CodeWatch.Tests.Samples.ExceptionTester.ExceptionTesterWithCatchAllHandledException", exception.Message);
+            StringAssert.Contains("UnhandledException", exception.Message);
         }
 
         [TestCase(typeof(ExceptionTesterWithInheritedMethod))]

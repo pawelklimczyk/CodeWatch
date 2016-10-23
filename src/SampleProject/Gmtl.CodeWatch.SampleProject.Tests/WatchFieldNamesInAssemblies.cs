@@ -12,6 +12,7 @@ namespace Gmtl.CodeWatch.SampleProject.Tests
             fieldNamingWatcher.Configure(Naming.UpperCase);
             fieldNamingWatcher.WatchAssembly(typeof(DomainModel).Assembly);
 
+            //This will throw exception
             fieldNamingWatcher.Execute();
         }
     }

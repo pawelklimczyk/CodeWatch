@@ -20,12 +20,12 @@ namespace Gmtl.CodeWatch
                 {
                     if (excHandCauses.CatchType == objType)
                     {
-                        throw new CodeWatchException(String.Format("Method {0} has catch-all exception handler", methodInfo.Name));
+                        throw new CodeWatchException(String.Format("Method {0} in type {1} has catch-all exception handler", methodInfo.Name, type.FullName));
                     }
 
                     if (excHandCauses.HandlerLength <= 6)
                     {
-                        throw new CodeWatchException(String.Format("Method {0} does not handle exception in catch clause", methodInfo.Name));
+                        throw new CodeWatchException(String.Format("Method {0} in type {1} does not handle exception in catch clause", methodInfo.Name, type.FullName));
                     }
                 }
             }
