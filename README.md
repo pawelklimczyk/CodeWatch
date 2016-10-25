@@ -7,7 +7,7 @@ Idea behind creating CodeWatch was to add quality layer in developed product. De
 This tool is not a panacea. It's rather a complementary piece that can help you achieve better code quality. It does not think on your behave, but automates it a little.
 
 
-### What CodeWatch can solve? ### 
+### What CodeWatch can solve?### 
 
 - Automates rules checking during unit/integration testing
 - Keep code conventions along with the project (in XML file)
@@ -25,6 +25,7 @@ This tool is not a panacea. It's rather a complementary piece that can help you 
                 .WatchAssembly(typeof(DomainModel).Assembly)
                 .Build();
 
+            //This will throw exception
             config.Execute();
         }
     }
