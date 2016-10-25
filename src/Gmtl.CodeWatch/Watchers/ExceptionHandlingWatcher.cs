@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Reflection;
 
-namespace Gmtl.CodeWatch
+namespace Gmtl.CodeWatch.Watchers
 {
     public class ExceptionHandlingWatcher : AbstractWatcher
     {

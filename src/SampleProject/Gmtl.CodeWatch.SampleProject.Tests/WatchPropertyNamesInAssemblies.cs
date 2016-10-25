@@ -1,3 +1,4 @@
+using Gmtl.CodeWatch.Watchers;
 using NUnit.Framework;
 
 namespace Gmtl.CodeWatch.SampleProject.Tests

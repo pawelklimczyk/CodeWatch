@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Reflection;
 
-namespace Gmtl.CodeWatch
+namespace Gmtl.CodeWatch.Watchers
 {
     public abstract class AbstractWatcher : IWatcher
     {

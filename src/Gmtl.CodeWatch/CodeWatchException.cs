@@ -7,7 +7,6 @@ namespace Gmtl.CodeWatch
         public CodeWatchException(string message)
             : base(message)
         {
-
         }
     }
 }

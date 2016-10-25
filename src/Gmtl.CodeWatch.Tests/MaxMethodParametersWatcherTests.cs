@@ -1,5 +1,6 @@
 ﻿using System;
 using Gmtl.CodeWatch.Tests.Samples.ManyParametersMethods;
+using Gmtl.CodeWatch.Watchers;
 using NUnit.Framework;
 
 namespace Gmtl.CodeWatch.Tests

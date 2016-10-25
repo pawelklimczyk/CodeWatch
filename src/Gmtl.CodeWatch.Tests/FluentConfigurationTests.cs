@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using Gmtl.CodeWatch.Watchers;
+using NUnit.Framework;
 
 namespace Gmtl.CodeWatch.Tests
 {

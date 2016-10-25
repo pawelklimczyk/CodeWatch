@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Reflection;
 
-namespace Gmtl.CodeWatch
+namespace Gmtl.CodeWatch.Watchers
 {
     /// <summary>
     /// Checks if Type contains methods with parameters count more than given.
