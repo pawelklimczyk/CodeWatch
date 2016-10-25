@@ -14,7 +14,7 @@ namespace Gmtl.CodeWatch.Watchers
 
         protected readonly CodeWatcherContext context;
 
-        public IReadOnlyList<CodeWatchException> Issues => issuesFound;
+        public IReadOnlyList<CodeWatchException> Issues { get { return issuesFound; } }
 
         protected AbstractWatcher(CodeWatcherContext context)
         {

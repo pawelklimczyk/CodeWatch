@@ -21,11 +21,11 @@ namespace Gmtl.CodeWatch.Watchers
                 {
                     if (excHandCauses.CatchType == objType)
                     {
-                        AddIssue(new CodeWatchException($"Method {methodInfo.Name} in type {type.FullName} has catch-all exception handler"));
+                        AddIssue(new CodeWatchException(String.Format("Method {0} in type {1} has catch-all exception handler", methodInfo.Name, type.FullName)));
                     }
                     else if (excHandCauses.HandlerLength <= 6)
                     {
-                        AddIssue(new CodeWatchException($"Method {methodInfo.Name} in type {type.FullName} does not handle exception in catch clause"));
+                        AddIssue(new CodeWatchException(String.Format("Method {0} in type {1} does not handle exception in catch clause", methodInfo.Name, type.FullName)));
                     }
                 }
             }

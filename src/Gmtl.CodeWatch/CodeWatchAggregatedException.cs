@@ -8,7 +8,7 @@ namespace Gmtl.CodeWatch
     {
         private readonly List<CodeWatchException> exceptions = new List<CodeWatchException>();
 
-        public IReadOnlyList<CodeWatchException> Exceptions => exceptions;
+        public IReadOnlyList<CodeWatchException> Exceptions { get { return exceptions; } }
 
         public CodeWatchAggregatedException(List<CodeWatchException> exceptions)
         {
@@ -22,7 +22,7 @@ namespace Gmtl.CodeWatch
 
         public override string ToString()
         {
-            return exceptions.Select(e => e.Message).Aggregate((a, b) => $"{a}\r\n{b}");
+            return exceptions.Select(e => e.Message).Aggregate((a, b) => String.Format("{0}\r\n{1}", a, b));
         }
     }
 }

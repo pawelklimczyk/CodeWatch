@@ -25,7 +25,7 @@ namespace Gmtl.CodeWatch.Watchers
 
                 if (!maps[namingConvention].Contains(firstLetter))
                 {
-                    AddIssue(new CodeWatchException($"Property {type.FullName}.{pi.Name} does not meet PropertyNaming standards"));
+                    AddIssue(new CodeWatchException(String.Format("Property {0}.{1} does not meet PropertyNaming standards", type.FullName, pi.Name)));
                 }
             }
         }
