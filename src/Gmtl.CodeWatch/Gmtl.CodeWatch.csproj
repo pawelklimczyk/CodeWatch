@@ -39,6 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CodeWatchAggregatedException.cs" />
     <Compile Include="Watchers\AbstractWatcher.cs" />
     <Compile Include="CodeWatcherConfig.cs" />
     <Compile Include="CodeWatcherContext.cs" />

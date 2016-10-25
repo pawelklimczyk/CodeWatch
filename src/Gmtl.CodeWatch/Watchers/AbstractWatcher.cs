@@ -10,7 +10,11 @@ namespace Gmtl.CodeWatch.Watchers
 
         protected List<Assembly> assembliesToCheck = new List<Assembly>();
 
+        protected List<CodeWatchException> issuesFound = new List<CodeWatchException>();
+
         protected readonly CodeWatcherContext context;
+
+        public IReadOnlyList<CodeWatchException> Issues => issuesFound;
 
         protected AbstractWatcher(CodeWatcherContext context)
         {
@@ -41,6 +45,13 @@ namespace Gmtl.CodeWatch.Watchers
                     CheckType(type);
                 }
             }
+
+
+        }
+
+        protected void AddIssue(CodeWatchException exception)
+        {
+            issuesFound.Add(exception);
         }
 
         protected abstract void CheckType(Type type);
