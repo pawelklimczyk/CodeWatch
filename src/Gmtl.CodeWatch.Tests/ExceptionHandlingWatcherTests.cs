@@ -27,24 +27,31 @@ namespace Gmtl.CodeWatch.Tests
         {
             sut.WatchType(input);
 
-            Assert.Throws<CodeWatchException>(() => sut.Execute());
+            sut.Execute();
+
+            Assert.That(sut.Issues.Count, Is.GreaterThan(0));
         }
 
         [TestCase(typeof(ExceptionTesterWithHandledAndUnhandledException))]
         public void ExceptionHandlingChecker_shouldThrowWhenMethodInAssemlyTypesWithoutProperExcHandlingIsPresent(Type input)
         {
             sut.WatchAssembly(input.Assembly);
+            
+            sut.Execute();
 
-            var exception = Assert.Throws<CodeWatchException>(() => sut.Execute());
-            StringAssert.Contains("Gmtl.CodeWatch.Tests.Samples.ExceptionTester.ExceptionTesterWithCatchAllHandledException", exception.Message);
-            StringAssert.Contains("UnhandledException", exception.Message);
+            Assert.That(sut.Issues.Count, Is.GreaterThan(0));
+            StringAssert.Contains("Gmtl.CodeWatch.Tests.Samples.ExceptionTester.ExceptionTesterWithCatchAllHandledException", sut.Issues[0].Message);
+            StringAssert.Contains("UnhandledException", sut.Issues[0].Message);
         }
 
         [TestCase(typeof(ExceptionTesterWithInheritedMethod))]
         public void ExceptionHandlingChecker_shouldNotThrowWhenMethodInInParentType(Type input)
         {
             sut.WatchType(input);
+
             sut.Execute();
+
+            Assert.That(sut.Issues.Count, Is.EqualTo(0));
         }
     }
 }

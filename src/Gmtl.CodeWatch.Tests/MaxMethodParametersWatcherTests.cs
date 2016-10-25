@@ -8,14 +8,13 @@ namespace Gmtl.CodeWatch.Tests
     [TestFixture]
     public class MaxMethodParametersWatcherTests
     {
-        private MaxMethodParametersWatcher watcher;
+        private MaxMethodParametersWatcher sut;
 
         [SetUp]
         public void Setup()
         {
-            watcher = new MaxMethodParametersWatcher();
+            sut = new MaxMethodParametersWatcher();
         }
-
 
         [TestCase(typeof(ClassWithPrivateMethodHaving3Parameters))]
         [TestCase(typeof(ClassWithPrivateMethodHaving4Parameters))]
@@ -25,10 +24,12 @@ namespace Gmtl.CodeWatch.Tests
         [TestCase(typeof(ClassWithPublicStaticMethodHaving4Parameters))]
         public void MaxMethodParametersWatcher_providedClassShouldFailWithMethodAbove2Parameters(Type type)
         {
-            watcher.Configure(2);
-            watcher.WatchType(type);
+            sut.Configure(2);
+            sut.WatchType(type);
 
-            Assert.Throws<CodeWatchException>(() => watcher.Execute());
+            sut.Execute();
+
+            Assert.That(sut.Issues.Count, Is.GreaterThan(0));
         }
 
         [TestCase(typeof(ClassWithPrivateMethodHaving0Parameters))]
@@ -42,11 +43,12 @@ namespace Gmtl.CodeWatch.Tests
         [TestCase(typeof(ClassWithPublicStaticMethodHaving2Parameters))]
         public void MaxMethodParametersWatcher_providedClassWithMethodBelow3ParametersShouldPass(Type type)
         {
-            watcher.Configure(2);
-            watcher.WatchType(type);
+            sut.Configure(2);
+            sut.WatchType(type);
 
-            watcher.Execute();
+            sut.Execute();
+
+            Assert.That(sut.Issues.Count, Is.EqualTo(0));
         }
-
     }
 }

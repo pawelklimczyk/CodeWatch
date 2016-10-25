@@ -45,10 +45,18 @@ namespace Gmtl.CodeWatch
 
         public void Execute()
         {
+            List<CodeWatchException> issues = new List<CodeWatchException>();
+
             foreach (var watcher in watchers)
             {
                 watcher.Execute();
+
+                if (watcher.Issues.Count > 0)
+                    issues.AddRange(watcher.Issues);
             }
+
+            if (issues.Count > 0)
+                throw new CodeWatchAggregatedException(issues);
         }
 
         public CodeWatcherConfig WatchAssembly(Assembly assembly)

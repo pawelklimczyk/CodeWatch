@@ -25,7 +25,7 @@ namespace Gmtl.CodeWatch.Watchers
 
                 if (!maps[namingConvention].Contains(firstLetter))
                 {
-                    throw new CodeWatchException(String.Format("Field {0} does not meet FieldNaming standards", pi.Name));
+                    AddIssue(new CodeWatchException($"Field {pi.Name} does not meet FieldNaming standards"));
                 }
             }
         }

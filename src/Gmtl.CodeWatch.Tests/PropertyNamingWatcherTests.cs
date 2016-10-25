@@ -25,6 +25,8 @@ namespace Gmtl.CodeWatch.Tests
             sut.WatchType(type);
 
             sut.Execute();
+
+            Assert.That(sut.Issues.Count, Is.EqualTo(0));
         }
 
         [TestCase(typeof(PropertyNamingPublicLowercase))]
@@ -35,7 +37,9 @@ namespace Gmtl.CodeWatch.Tests
             sut.Configure(Naming.UpperCase);
             sut.WatchType(type);
 
-            Assert.Throws<CodeWatchException>(() => sut.Execute());
+            sut.Execute();
+
+            Assert.That(sut.Issues.Count, Is.GreaterThan(0));
         }
 
         [TestCase(typeof(PropertyNamingPublicUppercase))]
@@ -49,7 +53,9 @@ namespace Gmtl.CodeWatch.Tests
             sut.Configure(Naming.LowerCase);
             sut.WatchType(type);
 
-            Assert.Throws<CodeWatchException>(() => sut.Execute());
+            sut.Execute();
+
+            Assert.That(sut.Issues.Count, Is.GreaterThan(0));
         }
 
         [TestCase(typeof(PropertyNamingPublicUppercase))]
@@ -62,7 +68,10 @@ namespace Gmtl.CodeWatch.Tests
         {
             sut.Configure(Naming.UpperCase);
             sut.WatchType(type);
+
             sut.Execute();
+
+            Assert.That(sut.Issues.Count, Is.EqualTo(0));
         }
 
         [Test]
@@ -71,6 +80,8 @@ namespace Gmtl.CodeWatch.Tests
             sut.Configure(Naming.UpperCase);
             sut.WatchType(typeof(PropertyNamingInheritance));
             sut.Execute();
+
+            Assert.That(sut.Issues.Count, Is.EqualTo(0));
         }
 
         [Test]
@@ -79,7 +90,9 @@ namespace Gmtl.CodeWatch.Tests
             sut.Configure(Naming.LowerCase);
             sut.WatchAssembly(typeof(Gmtl.CodeWatch.TestData.MixedPropertyNames.Class1).Assembly);
 
-            Assert.Throws<CodeWatchException>(() => sut.Execute());
+            sut.Execute();
+
+            Assert.That(sut.Issues.Count, Is.GreaterThan(0));
         }
 
         [Test]
@@ -88,7 +101,9 @@ namespace Gmtl.CodeWatch.Tests
             sut.Configure(Naming.LowerCase);
             sut.WatchAssembly(typeof(Gmtl.CodeWatch.TestData.AllUppercaseProperties.Class1).Assembly);
 
-            Assert.Throws<CodeWatchException>(() => sut.Execute());
+            sut.Execute();
+
+            Assert.That(sut.Issues.Count, Is.GreaterThan(0));
         }
 
         [Test]
@@ -98,6 +113,8 @@ namespace Gmtl.CodeWatch.Tests
             sut.WatchAssembly(typeof(Gmtl.CodeWatch.TestData.AllUppercaseProperties.Class1).Assembly);
 
             sut.Execute();
+
+            Assert.That(sut.Issues.Count, Is.EqualTo(0));
         }
 
         [Test]
@@ -106,8 +123,10 @@ namespace Gmtl.CodeWatch.Tests
             sut.Configure(Naming.LowerCase);
             sut.WatchAssembly(typeof(Gmtl.CodeWatch.TestData.AllUppercaseProperties.Class1).Assembly);
 
-            var exception = Assert.Throws<CodeWatchException>(() => sut.Execute());
-            StringAssert.Contains("Gmtl.CodeWatch.TestData.AllUppercaseProperties.Class1.TestProperty", exception.Message);
+            sut.Execute();
+
+            Assert.That(sut.Issues.Count, Is.GreaterThan(0));
+            StringAssert.Contains("Gmtl.CodeWatch.TestData.AllUppercaseProperties.Class1.TestProperty", sut.Issues[0].Message);
         }
     }
 }

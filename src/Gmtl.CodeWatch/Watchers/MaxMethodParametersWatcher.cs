@@ -23,17 +23,14 @@ namespace Gmtl.CodeWatch.Watchers
 
                 if (parameter.Length > maxParametersInMethod)
                 {
-                    throw new CodeWatchException(
-                        string.Format(
-                            "Method {0}.{1} does not meet MaxMethodParametersWatcher standards. Parameter limit for method is {2}",
-                            type.FullName, methodInfo.Name, this.maxParametersInMethod));
+                    AddIssue(new CodeWatchException($"Method {type.FullName}.{methodInfo.Name} does not meet MaxMethodParametersWatcher standards. Parameter limit for method is {maxParametersInMethod}"));
                 }
             }
         }
 
         public void Configure(int newMax)
         {
-            this.maxParametersInMethod = newMax;
+            maxParametersInMethod = newMax;
         }
     }
 }

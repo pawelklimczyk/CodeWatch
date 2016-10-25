@@ -12,8 +12,13 @@ namespace Gmtl.CodeWatch.SampleProject.Tests
             ExceptionHandlingWatcher exceptionHandlingWatcher = new ExceptionHandlingWatcher();
             exceptionHandlingWatcher.WatchAssembly(typeof(DomainModel).Assembly);
 
-            //This will throw exception
             exceptionHandlingWatcher.Execute();
+
+            //ruleViolations contain all methods that not handle exceptions properly
+            var ruleViolations = exceptionHandlingWatcher.Issues;
+
+            //Failure!
+            Assert.That(ruleViolations.Count, Is.EqualTo(0));
         }
     }
 }

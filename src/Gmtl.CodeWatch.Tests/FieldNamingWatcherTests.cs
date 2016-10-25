@@ -28,6 +28,8 @@ namespace Gmtl.CodeWatch.Tests
             sut.WatchType(type);
 
             sut.Execute();
+
+            Assert.That(sut.Issues.Count, Is.EqualTo(0));
         }
 
         [TestCase(typeof(FieldNamingPublicLowercase))]
@@ -38,7 +40,9 @@ namespace Gmtl.CodeWatch.Tests
             sut.Configure(Naming.UpperCase);
             sut.WatchType(type);
 
-            Assert.Throws<CodeWatchException>(() => sut.Execute());
+            sut.Execute();
+
+            Assert.That(sut.Issues.Count, Is.GreaterThan(0));
         }
 
         [TestCase(typeof(FieldNamingPublicUppercase))]
@@ -49,7 +53,9 @@ namespace Gmtl.CodeWatch.Tests
             sut.Configure(Naming.LowerCase);
             sut.WatchType(type);
 
-            Assert.Throws<CodeWatchException>(() => sut.Execute());
+            sut.Execute();
+
+            Assert.That(sut.Issues.Count, Is.GreaterThan(0));
         }
 
         [TestCase(typeof(FieldNamingPublicLowercase))]
@@ -60,6 +66,8 @@ namespace Gmtl.CodeWatch.Tests
             sut.Configure(Naming.LowerCase);
             sut.WatchType(type);
             sut.Execute();
+
+            Assert.That(sut.Issues.Count, Is.EqualTo(0));
         }
 
         [Test]
@@ -68,6 +76,8 @@ namespace Gmtl.CodeWatch.Tests
             sut.Configure(Naming.UpperCase);
             sut.WatchType(typeof(FieldNamingInheritance));
             sut.Execute();
+
+            Assert.That(sut.Issues.Count, Is.EqualTo(0));
         }
     }
 }

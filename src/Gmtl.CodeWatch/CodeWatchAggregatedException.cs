@@ -10,9 +10,9 @@ namespace Gmtl.CodeWatch
 
         public IReadOnlyList<CodeWatchException> Exceptions => exceptions;
 
-        public CodeWatchAggregatedException()
+        public CodeWatchAggregatedException(List<CodeWatchException> exceptions)
         {
-
+            this.exceptions.AddRange(exceptions);
         }
 
         public void AddException(CodeWatchException exception)

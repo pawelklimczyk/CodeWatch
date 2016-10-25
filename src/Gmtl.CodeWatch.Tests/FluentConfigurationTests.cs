@@ -25,7 +25,7 @@ namespace Gmtl.CodeWatch.Tests
                 .WatchAssembly(typeof(Gmtl.CodeWatch.TestData.AllUppercaseProperties.Class1).Assembly)
                 .Build();
 
-            Assert.Throws<CodeWatchException>(() => watcherConfig.Execute());
+            Assert.Throws<CodeWatchAggregatedException>(() => watcherConfig.Execute());
         }
     }
 }

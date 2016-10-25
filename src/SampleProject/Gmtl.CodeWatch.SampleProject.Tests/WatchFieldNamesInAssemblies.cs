@@ -13,8 +13,13 @@ namespace Gmtl.CodeWatch.SampleProject.Tests
             fieldNamingWatcher.Configure(Naming.UpperCase);
             fieldNamingWatcher.WatchAssembly(typeof(DomainModel).Assembly);
 
-            //This will throw exception
             fieldNamingWatcher.Execute();
+
+            //ruleViolations contain all fields that are not uppercase
+            var ruleViolations = fieldNamingWatcher.Issues;
+
+            //Failure!
+            Assert.That(ruleViolations.Count,Is.EqualTo(0));
         }
     }
 }

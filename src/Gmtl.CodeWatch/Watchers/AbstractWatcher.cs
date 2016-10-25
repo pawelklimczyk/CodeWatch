@@ -31,7 +31,7 @@ namespace Gmtl.CodeWatch.Watchers
             assembliesToCheck.Add(assembly);
         }
 
-        public void Execute()
+        public IReadOnlyList<CodeWatchException> Execute()
         {
             foreach (Type type in typesToCheck)
             {
@@ -46,7 +46,7 @@ namespace Gmtl.CodeWatch.Watchers
                 }
             }
 
-
+            return Issues;
         }
 
         protected void AddIssue(CodeWatchException exception)
