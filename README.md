@@ -3,7 +3,7 @@
 ## Build Status
 
 [![Build status](https://ci.appveyor.com/api/projects/status/8v6omwnj1o4fdc2h?svg=true)](https://ci.appveyor.com/project/pawelklimczyk/codewatch)
-
+[![NuGet](https://img.shields.io/nuget/v/Gmtl.CodeWatch.svg)](https://www.nuget.org/packages/Gmtl.CodeWatch/)
 ## Idea
 
 Idea behind creating CodeWatch was to add quality layer in developed product. Developers may use different IDE and programming techniques in the same project. Some tools (like FxCop) are difficult to use outside expected IDE. Developers agree to follow "coding standards" and forget to do that later.
