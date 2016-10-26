@@ -10,11 +10,10 @@ namespace Gmtl.CodeWatch
         private readonly List<IWatcher> watchers = new List<IWatcher>();
         private readonly List<Assembly> assembliesToCheck = new List<Assembly>();
 
-
         private CodeWatcherConfig()
         {
         }
-
+        
         public static CodeWatcherConfig Create(string confurationXml = "")
         {
             //TODO read config if exists
@@ -43,6 +42,9 @@ namespace Gmtl.CodeWatch
             return this;
         }
 
+        /// <summary>
+        /// Executes all configured watchers againts provided assemblies and types
+        /// </summary>
         public void Execute()
         {
             List<CodeWatchException> issues = new List<CodeWatchException>();
@@ -59,6 +61,11 @@ namespace Gmtl.CodeWatch
                 throw new CodeWatchAggregatedException(issues);
         }
 
+        /// <summary>
+        /// Adds assembly to list of assemblies to be checked
+        /// </summary>
+        /// <param name="assembly">Assembly to check</param>
+        /// <returns>CodeWatchConfig object</returns>
         public CodeWatcherConfig WatchAssembly(Assembly assembly)
         {
             assembliesToCheck.Add(assembly);

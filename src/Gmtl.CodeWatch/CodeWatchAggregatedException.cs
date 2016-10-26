@@ -4,6 +4,10 @@ using System.Linq;
 
 namespace Gmtl.CodeWatch
 {
+    /// <summary>
+    /// Keeps a list of CodeWatchExceptions.
+    /// The purpose is to throw one exception (CodeWatchAggregatedException) that will contain all code issues aggregated from watchers.
+    /// </summary>
     public class CodeWatchAggregatedException : Exception
     {
         private readonly List<CodeWatchException> exceptions = new List<CodeWatchException>();
