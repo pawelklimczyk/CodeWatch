@@ -13,10 +13,22 @@ namespace Gmtl.CodeWatch
         void WatchType(Type type);
 
         /// <summary>
+        /// Add particular Type to be skipped by watcher
+        /// </summary>
+        /// <param name="type">Type to be skipped</param>
+        void SkipType(Type type);
+
+        /// <summary>
         /// Add particular Assembly to be checked by watcher
         /// </summary>
         /// <param name="assembly">Assembly to be checked</param>
         void WatchAssembly(Assembly assembly);
+
+        /// <summary>
+        /// Add particular Assembly to be skipped by watcher
+        /// </summary>
+        /// <param name="assembly">Assembly to be skipped</param>
+        void SkipAssembly(Assembly assembly);
 
         /// <summary>
         /// Executed watcher code check
