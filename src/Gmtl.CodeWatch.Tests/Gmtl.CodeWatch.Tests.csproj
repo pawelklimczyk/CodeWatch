@@ -47,6 +47,7 @@
   <ItemGroup>
     <Compile Include="AggregateExceptionTests.cs" />
     <Compile Include="ExceptionHandlingWatcherTests.cs" />
+    <Compile Include="ExcludedAssemblyTests.cs" />
     <Compile Include="ExcludedTypeTests.cs" />
     <Compile Include="FieldNamingWatcherTests.cs" />
     <Compile Include="FluentConfigurationTests.cs" />
