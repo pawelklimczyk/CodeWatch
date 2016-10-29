@@ -9,6 +9,7 @@ namespace Gmtl.CodeWatch
         private CodeWatcherContext context;
         private readonly List<IWatcher> watchers = new List<IWatcher>();
         private readonly List<Assembly> assembliesToCheck = new List<Assembly>();
+        private readonly List<Assembly> assembliesToSkip = new List<Assembly>();
 
         private CodeWatcherConfig()
         {
@@ -69,6 +70,24 @@ namespace Gmtl.CodeWatch
         public CodeWatcherConfig WatchAssembly(Assembly assembly)
         {
             assembliesToCheck.Add(assembly);
+
+            if (assembliesToSkip.Contains(assembly))
+                assembliesToSkip.Remove(assembly);
+
+            return this;
+        }
+
+        /// <summary>
+        /// Adds assembly to list of assemblies to be skipped
+        /// </summary>
+        /// <param name="assembly">Assembly to skip check</param>
+        /// <returns>CodeWatchConfig object</returns>
+        public CodeWatcherConfig SkipAssembly(Assembly assembly)
+        {
+            assembliesToSkip.Add(assembly);
+            
+            if (assembliesToCheck.Contains(assembly))
+                assembliesToCheck.Remove(assembly);
 
             return this;
         }
