@@ -11,6 +11,9 @@ namespace Gmtl.CodeWatch
         private readonly List<Assembly> assembliesToCheck = new List<Assembly>();
         private readonly List<Assembly> assembliesToSkip = new List<Assembly>();
 
+        private readonly List<Type> typesToCheck = new List<Type>();
+        private readonly List<Type> typesToSkip = new List<Type>();
+
         private CodeWatcherConfig()
         {
         }
@@ -37,6 +40,30 @@ namespace Gmtl.CodeWatch
                 foreach (var watcher in watchers)
                 {
                     watcher.WatchAssembly(assembly);
+                }
+            }
+            
+            foreach (var assembly in assembliesToSkip)
+            {
+                foreach (var watcher in watchers)
+                {
+                    watcher.SkipAssembly(assembly);
+                }
+            }
+
+            foreach (var type in typesToCheck)
+            {
+                foreach (var watcher in watchers)
+                {
+                    watcher.WatchType(type);
+                }
+            }
+
+            foreach (var type in typesToSkip)
+            {
+                foreach (var watcher in watchers)
+                {
+                    watcher.SkipType(type);
                 }
             }
 
@@ -89,6 +116,26 @@ namespace Gmtl.CodeWatch
             if (assembliesToCheck.Contains(assembly))
                 assembliesToCheck.Remove(assembly);
 
+            return this;
+        }
+
+        public CodeWatcherConfig WatchType(Type type)
+        {
+            typesToCheck.Add(type);
+
+            if (typesToSkip.Contains(type))
+                typesToSkip.Remove(type);
+            
+            return this;
+        }
+
+        public CodeWatcherConfig SkipType(Type type)
+        {
+            typesToSkip.Add(type);
+
+            if (typesToCheck.Contains(type))
+                typesToCheck.Remove(type);
+            
             return this;
         }
     }

@@ -66,6 +66,8 @@ namespace Gmtl.CodeWatch.Watchers
             {
                 foreach (var type in assembly.GetTypes())
                 {
+                    if (typesToSkip.Contains(type)) continue;
+
                     CheckType(type);
                 }
             }
