@@ -28,9 +28,16 @@ namespace Gmtl.CodeWatch.Watchers
             }
         }
 
-        public void Configure(int newMax)
+        /// <summary>
+        /// Confugure how much maximum parameters can method have
+        /// </summary>
+        /// <param name="newMaxParametersCount">max number of parameters</param>
+        /// <returns>watcher</returns>
+        public AbstractWatcher Configure(int newMaxParametersCount)
         {
-            maxParametersInMethod = newMax;
+            maxParametersInMethod = newMaxParametersCount;
+
+            return this;
         }
     }
 }

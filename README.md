@@ -16,28 +16,115 @@ This tool is not a panacea. It's rather a complementary piece that can help you 
 - Automates rules checking during unit/integration testing
 - Keep code conventions along with the project (in XML file)
 
-## Sample usage
+## Examples
+
+
+All fields in given assembly has to be uppercase
 
 ```
-    public class GlobalContextTests
+[TestFixture]
+public class GlobalContextTests
+{
+    [Test]
+    public void FluentConfigurationBuilder()
     {
-        [Test]
-        public void FluentConfigurationBuilder()
-        {
-            CodeWatcherConfig config = CodeWatcherConfig.Create()
-                .WithWatcher(c => new FieldNamingWatcher(c).Configure(Naming.UpperCase))
-                .WatchAssembly(typeof(DomainModel).Assembly)
-                .Build();
-
-            //This will throw exception if rules are not violated
-            config.Execute();
-        }
+        CodeWatcherConfig config = CodeWatcherConfig.Create()
+            .WithWatcher(c => new FieldNamingWatcher(c).Configure(Naming.UpperCase))
+            .WatchAssembly(typeof(DomainModel).Assembly)
+            .Build();
+            
+        //This will throw exception if rules are violated
+        config.Execute();
     }
+}
+```
+
+All properties in given assembly have to be uppercase, but skip DomainModel class from checking
+
+```
+[TestFixture]
+public class GlobalContextTests
+{
+    [Test]
+    public void FluentConfigurationBuilder()
+    {
+        CodeWatcherConfig config = CodeWatcherConfig.Create()
+            .WithWatcher(c => new PropertyNamingWatcher(c).Configure(Naming.UpperCase))
+            .WatchAssembly(typeof(DomainModel).Assembly)
+            .SkipType(typeof(DomainModel))
+            .Build();
+
+        //This will throw exception if rules are violated
+        config.Execute();
+    }
+}
+```
+
+All properties in multiple assemblies have to be uppercase
+
+```
+[TestFixture]
+public class GlobalContextTests
+{
+    [Test]
+    public void FluentConfigurationBuilder()
+    {
+        CodeWatcherConfig config = CodeWatcherConfig.Create()
+            .WithWatcher(c => new PropertyNamingWatcher(c).Configure(Naming.UpperCase))
+            .WatchAssembly(typeof(DomainModel).Assembly)
+            .WatchAssembly(typeof(PersistenceLayer).Assembly)
+            .WatchAssembly(typeof(DomainServices).Assembly)
+            .Build();
+
+        //This will throw exception if rules are not violated
+        config.Execute();
+    }
+}
+```
+
+All try/catch clauses in given assembly have to be handled
+
+```
+[TestFixture]
+public class GlobalContextTests
+{
+    [Test]
+    public void FluentConfigurationBuilder()
+    {
+        CodeWatcherConfig config = CodeWatcherConfig.Create()
+            .WithWatcher(c => new ExceptionHandlingWatcher(c))
+            .WatchAssembly(typeof(DomainModel).Assembly)
+            .Build();
+
+        //This will throw exception if rules are violated
+        config.Execute();
+    }
+}
+```
+
+All methods in assembly neet to have at most 4 parameters
+
+```
+[TestFixture]
+public class GlobalContextTests
+{
+    [Test]
+    public void FluentConfigurationBuilder()
+    {
+        CodeWatcherConfig config = CodeWatcherConfig.Create()
+            .WithWatcher(c => new MaxMethodParametersWatcher(c).Configure(4))
+            .WatchAssembly(typeof(DomainModel).Assembly)
+            .Build();
+
+        //This will throw exception if rules are violated
+        config.Execute();
+    }
+}
 ```
 
 ## I miss a feature....
 
-You are very welcome to add a [pull request][1].
+**You are very welcome to add a [pull request][1].**
 
 [1]: https://github.com/pawelklimczyk/CodeWatch/compare
 
