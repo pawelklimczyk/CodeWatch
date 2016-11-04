@@ -46,6 +46,7 @@
     <Compile Include="CodeWatchException.cs" />
     <Compile Include="Watchers\ExceptionHandlingWatcher.cs" />
     <Compile Include="IWatcher.cs" />
+    <Compile Include="Watchers\MaxConstructorParametersWatcher.cs" />
     <Compile Include="Watchers\MaxMethodParametersWatcher.cs" />
     <Compile Include="Naming.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
