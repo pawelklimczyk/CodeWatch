@@ -53,6 +53,7 @@
     <Compile Include="FluentConfigurationTests.cs" />
     <Compile Include="MaxConstructorParametersWatcherTests.cs" />
     <Compile Include="MaxMethodParametersWatcherTests.cs" />
+    <Compile Include="MethodReturnTypeWatcherTests.cs" />
     <Compile Include="PropertyNamingWatcherTests.cs" />
     <Compile Include="Samples\ExceptionTester\ExceptionTesterWithCatchAllHandledException.cs" />
     <Compile Include="Samples\ExceptionTester\ExceptionTesterWithCatchAllUnhandled.cs" />
@@ -72,6 +73,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ManyParametersMethods.tt</DependentUpon>
     </Compile>
+    <Compile Include="Samples\MethodReturnType\AllMethodsReturnIListOfType.cs" />
+    <Compile Include="Samples\MethodReturnType\MethodsReturnDifferntLists.cs" />
     <Compile Include="Samples\PropertyNaming\PropertyNaming.tt.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -113,6 +116,7 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+    <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Clarius.TransformOnBuild-unofficial.1.20\build\Clarius.TransformOnBuild-unofficial.targets" Condition="Exists('..\packages\Clarius.TransformOnBuild-unofficial.1.20\build\Clarius.TransformOnBuild-unofficial.targets')" />
