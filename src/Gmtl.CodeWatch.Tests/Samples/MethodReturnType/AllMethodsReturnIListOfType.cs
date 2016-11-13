@@ -44,7 +44,7 @@ namespace Gmtl.CodeWatch.Tests.Samples.MethodReturnType
     class AllMethodsReturnPrimitiveTypeOfInt
     {
         public int GetCount1()
-        {
+        {   
             return 1;
         }
 
