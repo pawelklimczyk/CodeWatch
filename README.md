@@ -122,6 +122,26 @@ public class GlobalContextTests
 }
 ```
 
+All methods return types must be of type IList<T>
+
+```
+[TestFixture]
+public class GlobalContextTests
+{
+    [Test]
+    public void FluentConfigurationBuilder()
+    {
+        CodeWatcherConfig config = CodeWatcherConfig.Create()
+            .WithWatcher(c => new MethodReturnTypeWatcher(c).Configure(typeof(IList<object>)))
+            .WatchAssembly(typeof(DomainModel).Assembly)
+            .Build();
+
+        //This will throw exception if any public method will return something else than IList<T>
+        config.Execute();
+    }
+}
+```
+
 ## I miss a feature....
 
 **You are very welcome to add a [pull request][1].**
