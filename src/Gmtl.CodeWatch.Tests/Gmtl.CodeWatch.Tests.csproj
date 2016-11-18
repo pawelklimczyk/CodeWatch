@@ -45,7 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AggregateExceptionTests.cs" />
+    <Compile Include="CodeWatchResultTests.cs" />
     <Compile Include="ExceptionHandlingWatcherTests.cs" />
     <Compile Include="ExcludedAssemblyTests.cs" />
     <Compile Include="ExcludedTypeTests.cs" />

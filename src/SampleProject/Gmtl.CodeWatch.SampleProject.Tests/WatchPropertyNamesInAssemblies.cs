@@ -13,6 +13,8 @@ namespace Gmtl.CodeWatch.SampleProject.Tests
             propertyNamingWatcher.Configure(Naming.UpperCase);
             propertyNamingWatcher.WatchAssembly(typeof(DomainModel).Assembly);
 
+            propertyNamingWatcher.Execute();
+
             //ruleViolations contain all properties that are not uppercase
             var ruleViolations = propertyNamingWatcher.Issues;
 

@@ -3,14 +3,14 @@
 namespace Gmtl.CodeWatch.Tests
 {
     [TestFixture]
-    public class AggregateExceptionTests
+    public class CodeWatchResultTests
     {
         [Test]
         public void CodeWatchAggregatedException_providedAssemblyWith5ViolatedProperties_shouldReturnAggregateExcWith5SubExceptions()
         {
-            var exception = AssertThatWatcherThrowException();
+            var result = AssertThatWatcherThrowException();
 
-            Assert.That(exception.Exceptions.Count, Is.EqualTo(5));
+            Assert.That(result.Issues.Count, Is.EqualTo(5));
         }
 
         [Test]
@@ -21,13 +21,16 @@ namespace Gmtl.CodeWatch.Tests
             StringAssert.Contains("Class1", exception.ToString());
         }
 
-        private CodeWatchAggregatedException AssertThatWatcherThrowException()
+        private CodeWatchResult AssertThatWatcherThrowException()
         {
             var watcherConfig = TestHelpers.ConfigWithLowerCasePropertyCheck
            .WatchAssembly(typeof(Gmtl.CodeWatch.TestData.AllUppercaseProperties.Class1).Assembly)
            .Build();
 
-            return Assert.Throws<CodeWatchAggregatedException>(() => watcherConfig.Execute()); 
+            var result = watcherConfig.Execute();
+            Assert.IsFalse(result.HasIssues);
+
+            return result;
         }
     }
 }

@@ -14,7 +14,7 @@ namespace Gmtl.CodeWatch.SampleProject.Tests
                 .Build();
 
             //This will throw exception
-            config.Execute();
+          Assert.True(config.Execute().HasIssues);
         }
     }
 }

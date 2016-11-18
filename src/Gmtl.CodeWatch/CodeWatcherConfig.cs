@@ -17,7 +17,7 @@ namespace Gmtl.CodeWatch
         private CodeWatcherConfig()
         {
         }
-        
+
         public static CodeWatcherConfig Create(string confurationXml = "")
         {
             //TODO read config if exists
@@ -42,7 +42,7 @@ namespace Gmtl.CodeWatch
                     watcher.WatchAssembly(assembly);
                 }
             }
-            
+
             foreach (var assembly in assembliesToSkip)
             {
                 foreach (var watcher in watchers)
@@ -70,10 +70,12 @@ namespace Gmtl.CodeWatch
             return this;
         }
 
+
+
         /// <summary>
         /// Executes all configured watchers againts provided assemblies and types
         /// </summary>
-        public void Execute()
+        public CodeWatchResult Execute()
         {
             List<CodeWatchException> issues = new List<CodeWatchException>();
 
@@ -85,8 +87,7 @@ namespace Gmtl.CodeWatch
                     issues.AddRange(watcher.Issues);
             }
 
-            if (issues.Count > 0)
-                throw new CodeWatchAggregatedException(issues);
+            return new CodeWatchResult(issues);
         }
 
         /// <summary>
@@ -112,7 +113,7 @@ namespace Gmtl.CodeWatch
         public CodeWatcherConfig SkipAssembly(Assembly assembly)
         {
             assembliesToSkip.Add(assembly);
-            
+
             if (assembliesToCheck.Contains(assembly))
                 assembliesToCheck.Remove(assembly);
 
@@ -125,7 +126,7 @@ namespace Gmtl.CodeWatch
 
             if (typesToSkip.Contains(type))
                 typesToSkip.Remove(type);
-            
+
             return this;
         }
 
@@ -135,7 +136,7 @@ namespace Gmtl.CodeWatch
 
             if (typesToCheck.Contains(type))
                 typesToCheck.Remove(type);
-            
+
             return this;
         }
     }
