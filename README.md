@@ -33,8 +33,10 @@ public class GlobalContextTests
             .WatchAssembly(typeof(DomainModel).Assembly)
             .Build();
             
-        //This will throw exception if rules are violated
-        config.Execute();
+        var result = config.Execute(); 
+        
+        //this will fail
+        Assert.IsFalse(result.HasIssues);
     }
 }
 ```
@@ -54,8 +56,10 @@ public class GlobalContextTests
             .SkipType(typeof(DomainModel))
             .Build();
 
-        //This will throw exception if rules are violated
-        config.Execute();
+        var result = config.Execute(); 
+        
+        //this will fail
+        Assert.IsFalse(result.HasIssues);
     }
 }
 ```
@@ -76,8 +80,10 @@ public class GlobalContextTests
             .WatchAssembly(typeof(DomainServices).Assembly)
             .Build();
 
-        //This will throw exception if rules are not violated
-        config.Execute();
+        var result = config.Execute(); 
+        
+        //this will fail
+        Assert.IsFalse(result.HasIssues);
     }
 }
 ```
@@ -96,8 +102,10 @@ public class GlobalContextTests
             .WatchAssembly(typeof(DomainModel).Assembly)
             .Build();
 
-        //This will throw exception if rules are violated
-        config.Execute();
+        var result = config.Execute(); 
+        
+        //this will fail
+        Assert.IsFalse(result.HasIssues);
     }
 }
 ```
@@ -116,8 +124,10 @@ public class GlobalContextTests
             .WatchAssembly(typeof(DomainModel).Assembly)
             .Build();
 
-        //This will throw exception if rules are violated
-        config.Execute();
+        var result = config.Execute(); 
+        
+        //this will fail
+        Assert.IsFalse(result.HasIssues);
     }
 }
 ```
