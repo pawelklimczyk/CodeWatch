@@ -146,8 +146,10 @@ public class GlobalContextTests
             .WatchAssembly(typeof(DomainModel).Assembly)
             .Build();
 
-        //This will throw exception if any public method will return something else than IList<T>
-        config.Execute();
+        var result = config.Execute(); 
+
+        //this will fail
+        Assert.IsFalse(result.HasIssues);
     }
 }
 ```
