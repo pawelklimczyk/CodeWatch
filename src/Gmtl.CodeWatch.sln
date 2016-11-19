@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gmtl.CodeWatch.TestData.All
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gmtl.CodeWatch.TestData.MixedPropertyNames", "TestData\Gmtl.CodeWatch.TestData.MixedPropertyNames\Gmtl.CodeWatch.TestData.MixedPropertyNames.csproj", "{875619BA-6757-40CB-85C0-0E135290B1F7}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{AD1E5448-A5CC-4BD8-B4CE-C6FB882E8198}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -40,6 +42,8 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
+		{D141D3A4-AC07-4833-9B98-F02645C70676} = {AD1E5448-A5CC-4BD8-B4CE-C6FB882E8198}
+		{79A7234F-D19A-4878-87DF-D10B54219DD9} = {AD1E5448-A5CC-4BD8-B4CE-C6FB882E8198}
 		{25D8D54D-B556-4DF9-A36B-B272429128BF} = {79A7234F-D19A-4878-87DF-D10B54219DD9}
 		{875619BA-6757-40CB-85C0-0E135290B1F7} = {79A7234F-D19A-4878-87DF-D10B54219DD9}
 	EndGlobalSection
