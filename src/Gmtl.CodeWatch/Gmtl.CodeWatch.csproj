@@ -40,6 +40,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CodeWatchResult.cs" />
+    <Compile Include="LettersMap.cs" />
     <Compile Include="Watchers\AbstractWatcher.cs" />
     <Compile Include="CodeWatcherConfig.cs" />
     <Compile Include="CodeWatcherContext.cs" />

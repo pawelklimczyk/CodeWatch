@@ -6,6 +6,7 @@
     public enum Naming
     {
         UpperCase,
-        LowerCase
+        LowerCase,
+        Underscore
     }
 }

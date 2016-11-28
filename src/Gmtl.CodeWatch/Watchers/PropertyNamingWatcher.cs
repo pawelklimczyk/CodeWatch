@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 
@@ -8,13 +7,7 @@ namespace Gmtl.CodeWatch.Watchers
     public class PropertyNamingWatcher : AbstractWatcher
     {
         private Naming namingConvention = Naming.UpperCase;
-
-        private static Dictionary<Naming, char[]> maps = new Dictionary<Naming, char[]>
-        {
-            {Naming.LowerCase, "abcdefghijklmnopqrstuwvxzy".ToCharArray()},
-            {Naming.UpperCase, "ABCDEFGHIJKLMNOPQRSTUWVXZY".ToCharArray()}
-        };
-
+        
         public PropertyNamingWatcher(CodeWatcherContext context = null) : base(context) { }
 
         protected override void CheckType(Type type)
@@ -23,7 +16,7 @@ namespace Gmtl.CodeWatch.Watchers
             {
                 char firstLetter = pi.Name[0];
 
-                if (!maps[namingConvention].Contains(firstLetter))
+                if (!LettersMap.Map[namingConvention].Contains(firstLetter))
                 {
                     AddIssue(new CodeWatchException(String.Format("Property {0}.{1} does not meet PropertyNaming standards", type.FullName, pi.Name)));
                 }
