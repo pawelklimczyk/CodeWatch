@@ -54,6 +54,7 @@
     <Compile Include="Watchers\FieldNamingFirstLetterWatcher.cs" />
     <Compile Include="Watchers\MethodReturnTypeWatcher.cs" />
     <Compile Include="Watchers\PropertyNamingFirstLetterWatcher.cs" />
+    <Compile Include="Watchers\TextBasedWatcher.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Gmtl.CodeWatch.nuspec" />
