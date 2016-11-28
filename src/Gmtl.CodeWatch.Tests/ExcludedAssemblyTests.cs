@@ -6,12 +6,12 @@ namespace Gmtl.CodeWatch.Tests
     [TestFixture]
     public class ExcludedAssemblyTests
     {
-        private FieldNamingWatcher sut;
+        private FieldNamingFirstLetterWatcher sut;
 
         [SetUp]
         public void Setup()
         {
-            sut = new FieldNamingWatcher();
+            sut = new FieldNamingFirstLetterWatcher();
         }
 
         [Test]

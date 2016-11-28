@@ -8,12 +8,12 @@ namespace Gmtl.CodeWatch.Tests
     [TestFixture]
     public class FieldNamingWatcherTests
     {
-        private FieldNamingWatcher sut;
+        private FieldNamingFirstLetterWatcher sut;
 
         [SetUp]
         public void Setup()
         {
-            sut = new FieldNamingWatcher();
+            sut = new FieldNamingFirstLetterWatcher();
         }
 
         [TestCase(typeof(FieldNamingPublicUppercase))]

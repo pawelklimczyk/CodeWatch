@@ -51,9 +51,9 @@
     <Compile Include="Watchers\MaxMethodParametersWatcher.cs" />
     <Compile Include="Naming.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Watchers\FieldNamingWatcher.cs" />
+    <Compile Include="Watchers\FieldNamingFirstLetterWatcher.cs" />
     <Compile Include="Watchers\MethodReturnTypeWatcher.cs" />
-    <Compile Include="Watchers\PropertyNamingWatcher.cs" />
+    <Compile Include="Watchers\PropertyNamingFirstLetterWatcher.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Gmtl.CodeWatch.nuspec" />

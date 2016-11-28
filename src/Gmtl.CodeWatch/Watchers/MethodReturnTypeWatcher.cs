@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Text;
-using System.Linq;
 using System.Reflection;
 
 namespace Gmtl.CodeWatch.Watchers
@@ -26,11 +24,11 @@ namespace Gmtl.CodeWatch.Watchers
                 {
                     bool genericTypeMatch = actualType.GetGenericTypeDefinition() == expectedType.GetGenericTypeDefinition();
 
-                    bool genericParametersMatch = actualType.GenericTypeArguments.Count() == expectedType.GenericTypeArguments.Count();
+                    bool genericParametersMatch = actualType.GenericTypeArguments.Length == expectedType.GenericTypeArguments.Length;
 
                     if (genericParametersMatch)
                     {
-                        for (int i = 0; i < actualType.GenericTypeArguments.Count(); i++)
+                        for (int i = 0; i < actualType.GenericTypeArguments.Length; i++)
                         {
                             genericParametersMatch &= ((actualType.GenericTypeArguments[i] == expectedType.GenericTypeArguments[i]) | actualType.GenericTypeArguments[i].IsSubclassOf(expectedType.GenericTypeArguments[i]));
                         }

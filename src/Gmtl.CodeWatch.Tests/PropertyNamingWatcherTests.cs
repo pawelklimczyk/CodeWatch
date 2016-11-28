@@ -8,12 +8,12 @@ namespace Gmtl.CodeWatch.Tests
     [TestFixture]
     public class PropertyNamingWatcherTests
     {
-        private PropertyNamingWatcher sut;
+        private PropertyNamingFirstLetterWatcher sut;
 
         [SetUp]
         public void Setup()
         {
-            sut = new PropertyNamingWatcher();
+            sut = new PropertyNamingFirstLetterWatcher();
         }
 
         [TestCase(typeof(PropertyNamingPublicLowercase))]

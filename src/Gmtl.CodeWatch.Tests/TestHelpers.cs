@@ -8,7 +8,7 @@ namespace Gmtl.CodeWatch.Tests
         {
             get
             {
-                return CodeWatcherConfig.Create().WithWatcher(c => new PropertyNamingWatcher(c).Configure(Naming.LowerCase));
+                return CodeWatcherConfig.Create().WithWatcher(c => new PropertyNamingFirstLetterWatcher(c).Configure(Naming.LowerCase));
             }
         }
     }

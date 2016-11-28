@@ -4,21 +4,21 @@ using System.Reflection;
 
 namespace Gmtl.CodeWatch.Watchers
 {
-    public class FieldNamingWatcher : AbstractWatcher
+    public class PropertyNamingFirstLetterWatcher : AbstractWatcher
     {
         private Naming namingConvention = Naming.UpperCase;
         
-        public FieldNamingWatcher(CodeWatcherContext context = null) : base(context) { }
+        public PropertyNamingFirstLetterWatcher(CodeWatcherContext context = null) : base(context) { }
 
         protected override void CheckType(Type type)
         {
-            foreach (FieldInfo pi in type.GetFields(BindingFlags.Public | BindingFlags.DeclaredOnly | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Static))
+            foreach (PropertyInfo pi in type.GetProperties(BindingFlags.Public | BindingFlags.DeclaredOnly | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Static))
             {
                 char firstLetter = pi.Name[0];
 
                 if (!LettersMap.Map[namingConvention].Contains(firstLetter))
                 {
-                    AddIssue(new CodeWatchException(String.Format("Field {0} does not meet FieldNaming standards", pi.Name)));
+                    AddIssue(new CodeWatchException(String.Format("Property {0}.{1} does not meet PropertyNamingFirstLetter standards", type.FullName, pi.Name)));
                 }
             }
         }
