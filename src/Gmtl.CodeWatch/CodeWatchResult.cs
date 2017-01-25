@@ -15,7 +15,7 @@ namespace Gmtl.CodeWatch
         
         public bool HasIssues
         {
-            get { return Issues.Count == 0; }
+            get { return Issues.Count > 0; }
         }
 
         public override string ToString()

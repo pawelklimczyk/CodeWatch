@@ -7,7 +7,7 @@ namespace Gmtl.CodeWatch.SampleProject.Tests
     public class WatchAllTryCatchBlocksHandleException
     {
         [Test]
-        public void AllTryCatchBlocksInAssembyMustBeHandedl()
+        public void AllTryCatchBlocksInAssembyMustBeHandledWillFail()
         {
             ExceptionHandlingWatcher exceptionHandlingWatcher = new ExceptionHandlingWatcher();
             exceptionHandlingWatcher.WatchAssembly(typeof(DomainModel).Assembly);
@@ -18,7 +18,7 @@ namespace Gmtl.CodeWatch.SampleProject.Tests
             var ruleViolations = exceptionHandlingWatcher.Issues;
 
             //Failure!
-            Assert.That(ruleViolations.Count, Is.EqualTo(0));
+            Assert.That(ruleViolations.Count, Is.GreaterThan(0));
         }
     }
 }

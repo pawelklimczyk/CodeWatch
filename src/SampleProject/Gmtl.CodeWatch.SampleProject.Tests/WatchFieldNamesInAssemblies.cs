@@ -7,7 +7,7 @@ namespace Gmtl.CodeWatch.SampleProject.Tests
     public class WatchFieldNamesInAssemblies
     {
         [Test]
-        public void AllPropertiesInAssemblyMustStartWithUppercase()
+        public void AllPropertiesInAssemblyMustStartWithUppercaseWillFail()
         {
             FieldNamingFirstLetterWatcher fieldNamingWatcher = new FieldNamingFirstLetterWatcher();
             fieldNamingWatcher.Configure(Naming.UpperCase);
@@ -19,7 +19,7 @@ namespace Gmtl.CodeWatch.SampleProject.Tests
             var ruleViolations = fieldNamingWatcher.Issues;
 
             //Failure!
-            Assert.That(ruleViolations.Count,Is.EqualTo(0));
+            Assert.That(ruleViolations.Count,Is.GreaterThan(0));
         }
     }
 }

@@ -69,9 +69,7 @@ namespace Gmtl.CodeWatch
 
             return this;
         }
-
-
-
+        
         /// <summary>
         /// Executes all configured watchers againts provided assemblies and types
         /// </summary>
