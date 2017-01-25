@@ -9,7 +9,7 @@ namespace Gmtl.CodeWatch.SampleProject.Tests
         [Test]
         public void AllPropertiesInAssemblyMustStartWithUppercase()
         {
-            FieldNamingWatcher fieldNamingWatcher = new FieldNamingWatcher();
+            FieldNamingFirstLetterWatcher fieldNamingWatcher = new FieldNamingFirstLetterWatcher();
             fieldNamingWatcher.Configure(Naming.UpperCase);
             fieldNamingWatcher.WatchAssembly(typeof(DomainModel).Assembly);
 

@@ -9,12 +9,15 @@ namespace Gmtl.CodeWatch.SampleProject.Tests
         public void FluentConfigurationBuilder()
         {
             CodeWatcherConfig config = CodeWatcherConfig.Create()
-                .WithWatcher(c => new FieldNamingWatcher(c).Configure(Naming.UpperCase))
+                .WithWatcher(c => new FieldNamingFirstLetterWatcher(c).Configure(Naming.UpperCase))
                 .WatchAssembly(typeof(DomainModel).Assembly)
                 .Build();
 
+            //execute configuration
+            var result = config.Execute();
+
             //This will throw exception
-          Assert.True(config.Execute().HasIssues);
+            Assert.True(result.HasIssues);
         }
     }
 }
