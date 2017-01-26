@@ -28,7 +28,7 @@ namespace Gmtl.CodeWatch.Tests
            .Build();
 
             var result = watcherConfig.Execute();
-            Assert.IsFalse(result.HasIssues);
+            Assert.IsTrue(result.HasIssues);
 
             return result;
         }

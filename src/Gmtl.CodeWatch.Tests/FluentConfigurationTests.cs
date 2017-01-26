@@ -15,7 +15,7 @@ namespace Gmtl.CodeWatch.Tests
                 .WatchAssembly(typeof(Gmtl.CodeWatch.TestData.AllUppercaseProperties.Class1).Assembly)
                 .Build();
 
-            Assert.IsTrue(watcherConfig.Execute().HasIssues);
+            Assert.IsFalse(watcherConfig.Execute().HasIssues);
         }
 
         [Test]
@@ -26,7 +26,7 @@ namespace Gmtl.CodeWatch.Tests
                 .WatchAssembly(typeof(Gmtl.CodeWatch.TestData.AllUppercaseProperties.Class1).Assembly)
                 .Build();
 
-            Assert.IsFalse(watcherConfig.Execute().HasIssues);
+            Assert.IsTrue(watcherConfig.Execute().HasIssues);
         }
 
         [Test]
@@ -38,7 +38,7 @@ namespace Gmtl.CodeWatch.Tests
                 .SkipAssembly(typeof(Gmtl.CodeWatch.TestData.AllUppercaseProperties.Class1).Assembly)
                 .Build();
 
-            Assert.IsTrue(watcherConfig.Execute().HasIssues);
+            Assert.IsFalse(watcherConfig.Execute().HasIssues);
         }
 
         [Test]
@@ -50,7 +50,7 @@ namespace Gmtl.CodeWatch.Tests
                 .WatchAssembly(typeof(Gmtl.CodeWatch.TestData.AllUppercaseProperties.Class1).Assembly)
                 .Build();
 
-            Assert.IsFalse(watcherConfig.Execute().HasIssues);
+            Assert.IsTrue(watcherConfig.Execute().HasIssues);
         }
 
         [Test]
@@ -61,7 +61,7 @@ namespace Gmtl.CodeWatch.Tests
                 .WatchType(typeof(Gmtl.CodeWatch.TestData.AllUppercaseProperties.Class1))
                 .Build();
 
-            Assert.IsFalse(watcherConfig.Execute().HasIssues);
+            Assert.IsTrue(watcherConfig.Execute().HasIssues);
         }
 
         [Test]
@@ -73,7 +73,7 @@ namespace Gmtl.CodeWatch.Tests
                 .SkipType(typeof(Gmtl.CodeWatch.TestData.AllUppercaseProperties.Class1))
                 .Build();
 
-            Assert.IsTrue(watcherConfig.Execute().HasIssues);
+            Assert.IsFalse(watcherConfig.Execute().HasIssues);
         }
 
         [Test]
@@ -85,7 +85,7 @@ namespace Gmtl.CodeWatch.Tests
                 .WatchType(typeof(Gmtl.CodeWatch.TestData.AllUppercaseProperties.Class1))
                 .Build();
 
-            Assert.IsFalse(watcherConfig.Execute().HasIssues);
+            Assert.IsTrue(watcherConfig.Execute().HasIssues);
         }
 
         [Test]
@@ -97,7 +97,7 @@ namespace Gmtl.CodeWatch.Tests
                 .WatchType(typeof(Gmtl.CodeWatch.TestData.AllUppercaseProperties.Class1))
                 .Build();
 
-            Assert.IsFalse(watcherConfig.Execute().HasIssues);
+            Assert.IsTrue(watcherConfig.Execute().HasIssues);
         }
 
         [Test]
@@ -111,7 +111,7 @@ namespace Gmtl.CodeWatch.Tests
 
             var result = watcherConfig.Execute();
 
-            Assert.IsFalse(result.HasIssues);
+            Assert.IsTrue(result.HasIssues);
             Assert.That(result.Issues.All(e => !e.Message.Contains("Class1")));
         }
     }
